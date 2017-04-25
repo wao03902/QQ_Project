@@ -6,30 +6,29 @@
 package sample;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javax.swing.JOptionPane;
+
+import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 import qq_project.QQ_Project;
 
 /**
- * FXML Controller class
+ * models Controller class
  *
- * @author Андпрей
+ * @author пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
  */
 public class LoginController extends Dialog implements Initializable {
 
@@ -65,50 +64,24 @@ public class LoginController extends Dialog implements Initializable {
 
     @FXML
     private void loginAction(ActionEvent event) throws Exception {
-        hash();
-        
-        if (loginFiled.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Введите логин!", "Ошибка!", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (passwordField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Введите пароль!", "Ошибка!", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, password);
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * "
-                    + "from qq_login "
-                    + "where BINARY lower(login) = BINARY '" + loginFiled.getText().trim().toLowerCase() + "'");
-            boolean succeessEntry = true;
-            boolean loginExist = false;
-            while (rs.next()) {
-                loginExist = true;
-                if (!rs.getString("login_status").equals("1")) {
-                    succeessEntry = false;
-                    JOptionPane.showMessageDialog(null, "Пользователь заблокирован!", "Ошибка!", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    if (!BCrypt.checkpw(passwordField.getText(),rs.getString("hashed_password"))) {
-                        succeessEntry = false;
-                        JOptionPane.showMessageDialog(null, "Пароль неверный!", "Ошибка!", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }
-            rs.close();
-            stmt.close();
-            con.close();
-            if (!loginExist) {
-                JOptionPane.showMessageDialog(null, "Пользователь с таким логином не зарегистрирован!", "Ошибка!", JOptionPane.ERROR_MESSAGE);
+
+        if(loginFiled.getText().equals("1")){
+            if(passwordField.getText().equals("2")){
+                Parent root = FXMLLoader.load(getClass().getResource("../models/main.fxml"));
+                Stage primaryStage = new Stage();
+                primaryStage.setTitle("Main");
+                primaryStage.setResizable(false);
+                Scene scene = new Scene(root);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+                Node source = (Node) event.getSource();
+                Stage stage = (Stage) source.getScene().getWindow();
+                stage.close();
                 return;
             }
-            System.out.println("Successed login!");
-        } catch (SQLException sqlEx) {
-            sqlEx.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("Fail");
+
     }
 
     @FXML
