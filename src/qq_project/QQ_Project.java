@@ -21,6 +21,7 @@ import sample.LoginController;
  *
  * @author Андпрей
  */
+
 public class QQ_Project extends Application {
     private Stage stage;
     private final double MINIMUM_WINDOW_WIDTH = 200;
