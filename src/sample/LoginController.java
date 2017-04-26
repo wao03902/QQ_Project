@@ -30,7 +30,7 @@ import qq_project.QQ_Project;
  *
  * @author �������
  */
-public class LoginController extends Dialog implements Initializable {
+public class LoginController extends Dialog {
 
     @FXML
     private Button okButton;
@@ -42,26 +42,18 @@ public class LoginController extends Dialog implements Initializable {
     private TextField loginFiled;
     @FXML
     private Hyperlink changePasswordLabel;
-    @FXML
+
 
     private QQ_Project application;
-    private static final String url = "jdbc:mysql://localhost:3306/qqdb";
-    private static final String user = "qq";
-    private static final String password = "qqqq";
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        loginFiled.setText("AnDrUsHa");
-        passwordField.setText("Andrusha");
-    }
 
     public void setApp(QQ_Project application) {
         this.application = application;
     }
 
+
+
+    //LOOK THIS
     @FXML
     private void loginAction(ActionEvent event) throws Exception {
 
@@ -76,7 +68,7 @@ public class LoginController extends Dialog implements Initializable {
                 primaryStage.show();
                 Node source = (Node) event.getSource();
                 Stage stage = (Stage) source.getScene().getWindow();
-                stage.close();
+                stage.hide();
                 return;
             }
         }
@@ -84,23 +76,10 @@ public class LoginController extends Dialog implements Initializable {
 
     }
 
-    @FXML
-    private void closeAction(ActionEvent event) {
-        System.exit(0);
+
+    public void changePasswordAction(ActionEvent actionEvent) {
     }
 
-    @FXML
-    private void changePasswordAction(ActionEvent event) {
-    }
-
-    void hash() {
-        String Password1 = "1234";
-        String Password1Hash = BCrypt.hashpw(Password1, BCrypt.gensalt(8));
-        System.out.println(Password1Hash);
-        String Password2 = "1234";
-        String Password2Hash = BCrypt.hashpw(Password2, BCrypt.gensalt(8));
-        System.out.println(Password2Hash);
-        boolean matched = BCrypt.checkpw(Password2, Password1Hash);
-        System.out.println(matched);
+    public void closeAction(ActionEvent actionEvent) {
     }
 }
