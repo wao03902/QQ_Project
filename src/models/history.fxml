@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="59.0" layoutY="30.0" text="Имя" />
+      <Label fx:id="nameLabel" layoutX="219.0" layoutY="30.0" text="var name" />
+      <Label layoutX="341.0" layoutY="30.0" text="Телефон" />
+      <Label fx:id="telLabel" layoutX="470.0" layoutY="30.0" text="var tel" />
+      <Label layoutX="244.0" layoutY="76.0" text="История посещения" />
+      <TableView fx:id="historyTable" layoutX="20.0" layoutY="100.0" prefHeight="200.0" prefWidth="560.0">
+        <columns>
+          <TableColumn prefWidth="46.0" text="#" />
+          <TableColumn prefWidth="82.0" text="Дата" />
+            <TableColumn prefWidth="78.0" text="Услуга" />
+            <TableColumn prefWidth="97.0" text="Мастер" />
+            <TableColumn prefWidth="72.0" text="Цена" />
+            <TableColumn prefWidth="108.0" text="Длительность" />
+            <TableColumn prefWidth="76.0" text="Скидка" />
+        </columns>
+      </TableView>
+      <Label layoutX="20.0" layoutY="319.0" text="Итого:" />
+      <Label fx:id="moneyLabel" layoutX="82.0" layoutY="319.0" text="var money" />
+      <Button fx:id="cancelButton" layoutX="518.0" layoutY="315.0" mnemonicParsing="false" onAction="#cancelField" text="Закрыть" />
+   </children>
+</Pane>
