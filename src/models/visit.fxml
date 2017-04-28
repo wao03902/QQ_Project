@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="40.0" prefWidth="600.0">
+         <children>
+            <Label prefWidth="90.0" text="Дата">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <DatePicker fx:id="dataField" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </DatePicker>
+            <Label prefWidth="40.0" text="Время">
+               <HBox.margin>
+                  <Insets left="115.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ChoiceBox fx:id="timeField" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="90.0" text="Услуга">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ChoiceBox fx:id="serviceField" prefWidth="200.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </ChoiceBox>
+            <Label prefWidth="40.0" text="Раздел">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ChoiceBox fx:id="sectionField" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="90.0" text="Цена">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="priceField" editable="false" prefWidth="80.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </TextField>
+            <Label prefWidth="25.0" text="грн.">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="Длительность">
+               <HBox.margin>
+                  <Insets left="44.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="durationField" editable="false" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="90.0" text="Дополнительно">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="additionallyField" prefWidth="80.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </TextField>
+            <Label prefWidth="25.0" text="грн.">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="90.0" text="Скидка">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="discountField" prefWidth="80.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </TextField>
+            <ChoiceBox fx:id="discountTypeField" prefWidth="50.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="86.0" prefWidth="600.0">
+         <children>
+            <Label prefWidth="90.0" text="Примечание">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextArea fx:id="noteField" maxHeight="-Infinity" prefHeight="70.0" prefWidth="400.0" wrapText="true">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </TextArea>
+         </children>
+      </HBox>
+      <HBox prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="90.0" text="ИТОГО:">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="totalField" editable="false" prefHeight="25.0" prefWidth="89.0">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="7.0" />
+               </HBox.margin>
+            </TextField>
+            <Label text="грн.">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveAction" prefHeight="50.0" prefWidth="300.0" text="СОХРАНИТЬ" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelAction" prefHeight="50.0" prefWidth="300.0" text="ОТМЕНА" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

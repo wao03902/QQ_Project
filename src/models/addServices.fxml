@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Новая услуга">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" left="100.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="80.0" text="Название">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="nameField" prefWidth="160.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="80.0" text="Цена">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="priceField" prefWidth="160.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="80.0" text="Длительность">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="durationField" prefWidth="160.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="80.0" text="Раздел">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ChoiceBox fx:id="selectionField" prefWidth="160.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="80.0" text="Описание">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextArea fx:id="descField" prefHeight="200.0" prefWidth="160.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextArea>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveAction" prefHeight="100.0" prefWidth="150.0" text="Сохранить">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelAction" prefHeight="100.0" prefWidth="150.0" text="Отмена">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
