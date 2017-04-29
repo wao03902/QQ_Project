@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.FXCollections?>
+
+<?import javafx.scene.control.Button?>
+	
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.CustomersController">
+    
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    
+    <Label style="-fx-font: NORMAL 20 Tahoma;" text="Clients list"                
+        GridPane.columnIndex="0"
+        GridPane.rowIndex="0">
+    </Label>
+    
+    <TableView GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="clientsTable">
+        
+        <columns>
+          	<TableColumn text="ID" fx:id="idColumn">
+		        <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
+		     </TableColumn>
+		     <TableColumn text="Name" fx:id="nameColumn">
+		        <cellValueFactory><PropertyValueFactory property="name" /></cellValueFactory>
+		     </TableColumn>
+		     <TableColumn text="Surname" fx:id="surnameColumn">
+		        <cellValueFactory><PropertyValueFactory property="surname" /></cellValueFactory>
+		     </TableColumn>
+		     <TableColumn text="Fathername" fx:id="fathernameColumn">
+		        <cellValueFactory><PropertyValueFactory property="fathername" /></cellValueFactory>
+		     </TableColumn>
+		     <TableColumn text="Phone" fx:id="phoneColumn">
+		        <cellValueFactory><PropertyValueFactory property="phone" /></cellValueFactory>
+		     </TableColumn>
+		     <TableColumn text="Create date" fx:id="createDateColumn">
+		        <cellValueFactory><PropertyValueFactory property="createDate" /></cellValueFactory>
+		     </TableColumn>
+		     <TableColumn text="Status" fx:id="statusColumn">
+		        <cellValueFactory><PropertyValueFactory property="status" /></cellValueFactory>
+		     </TableColumn>
+     </columns>
+     
+    </TableView>
+    
+    <HBox spacing="10" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Button text = "New client" onAction="#newClient" />
+    	<Button text = "Cancel" onAction="#cancel" />
+    </HBox>
+    
+</GridPane>

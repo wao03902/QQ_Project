@@ -3,11 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package qq_project;
+package com.ivisoft.salon;
 
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.ivisoft.salon.controllers.LoginController;
+import com.ivisoft.salon.dao.MasterDao;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,7 +19,6 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import sample.LoginController;
 
 /**
  *
@@ -23,6 +26,7 @@ import sample.LoginController;
  */
 
 public class QQ_Project extends Application {
+    
     private Stage stage;
     private final double MINIMUM_WINDOW_WIDTH = 200;
     private final double MINIMUM_WINDOW_HEIGHT = 200;
@@ -35,11 +39,13 @@ public class QQ_Project extends Application {
             stage.setTitle("FXML Login Sample");
             stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
             stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-            gotoLogin();
+            goToLogin();
             primaryStage.show();
         } catch (Exception ex) {
             Logger.getLogger(QQ_Project.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        System.out.println(MasterDao.getMasterById(1));
     }
 
     /**
@@ -48,9 +54,10 @@ public class QQ_Project extends Application {
     public static void main(String[] args) {
        Application.launch(QQ_Project.class, (java.lang.String[])null);
     }
-    private void gotoLogin() {
+    
+    private void goToLogin() {
         try {
-            LoginController login = (LoginController) replaceSceneContent("login.fxml");
+            LoginController login = (LoginController) replaceSceneContent("/com/ivisoft/salon/gui/login.fxml");
             login.setApp(this);
         } catch (Exception ex) {
             Logger.getLogger(QQ_Project.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,6 +66,7 @@ public class QQ_Project extends Application {
 
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
+//        System.getProperty(key)
         InputStream in = QQ_Project.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(QQ_Project.class.getResource(fxml));
