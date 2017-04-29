@@ -41,4 +41,8 @@ public class Dictionary {
         this.createDate = createDate;
     }
     
+    @Override
+    public String toString() {
+        return caption;
+    }
 }

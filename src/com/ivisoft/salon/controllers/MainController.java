@@ -46,22 +46,17 @@ public class MainController {
     }
     
     @FXML
-    private void clientsAction(ActionEvent event) {
+    private void clientsAction(ActionEvent event) throws IOException {
         
-        try {
-            Stage stage = (Stage) clientsButton.getScene().getWindow();
-            stage.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/clients.fxml"));
-            Parent root1;
-            root1 = (Parent) fxmlLoader.load();
-            stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Clients");
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Stage stage = (Stage) clientsButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ivisoft/salon/gui/clients.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Main window");
+        stage.setScene(new Scene(root1));
+        stage.show();
     }
     
     @FXML

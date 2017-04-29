@@ -10,7 +10,7 @@
 
 <?import javafx.scene.control.Button?>
 	
-<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.CustomersController">
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ivisoft.salon.controllers.ClientsController">
     
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -27,30 +27,21 @@
           	<TableColumn text="ID" fx:id="idColumn">
 		        <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
 		     </TableColumn>
-		     <TableColumn text="Name" fx:id="nameColumn">
+		     <TableColumn text="Имя" fx:id="nameColumn">
 		        <cellValueFactory><PropertyValueFactory property="name" /></cellValueFactory>
 		     </TableColumn>
-		     <TableColumn text="Surname" fx:id="surnameColumn">
-		        <cellValueFactory><PropertyValueFactory property="surname" /></cellValueFactory>
-		     </TableColumn>
-		     <TableColumn text="Fathername" fx:id="fathernameColumn">
-		        <cellValueFactory><PropertyValueFactory property="fathername" /></cellValueFactory>
-		     </TableColumn>
-		     <TableColumn text="Phone" fx:id="phoneColumn">
+		     <TableColumn text="Телефон" fx:id="phoneColumn">
 		        <cellValueFactory><PropertyValueFactory property="phone" /></cellValueFactory>
 		     </TableColumn>
-		     <TableColumn text="Create date" fx:id="createDateColumn">
-		        <cellValueFactory><PropertyValueFactory property="createDate" /></cellValueFactory>
-		     </TableColumn>
-		     <TableColumn text="Status" fx:id="statusColumn">
-		        <cellValueFactory><PropertyValueFactory property="status" /></cellValueFactory>
+		     <TableColumn text="Количество посещений" fx:id="phoneColumn">
+		        <cellValueFactory><PropertyValueFactory property="phone" /></cellValueFactory>
 		     </TableColumn>
      </columns>
      
     </TableView>
     
     <HBox spacing="10" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2">
-        <Button text = "New client" onAction="#newClient" />
+        <Button text = "New client" fx:id="addClientBtn" onAction="#newClient" />
     	<Button text = "Cancel" onAction="#cancel" />
     </HBox>
     
