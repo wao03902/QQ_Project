@@ -59,20 +59,21 @@ public class LoginController extends Dialog {
 
         if(loginFiled.getText().equals("1")){
             if(passwordField.getText().equals("2")){
-                Parent root = FXMLLoader.load(getClass().getResource("../models/main.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("../models/app.fxml"));
                 Stage primaryStage = new Stage();
                 primaryStage.setTitle("Main");
-                primaryStage.setResizable(false);
+                primaryStage.setResizable(true);
+                primaryStage.setMinWidth(800);
+                primaryStage.setMinHeight(600);
                 Scene scene = new Scene(root);
                 primaryStage.setScene(scene);
                 primaryStage.show();
                 Node source = (Node) event.getSource();
                 Stage stage = (Stage) source.getScene().getWindow();
-                stage.hide();
+                stage.close();
                 return;
             }
         }
-        System.out.println("Fail");
 
     }
 
@@ -81,5 +82,6 @@ public class LoginController extends Dialog {
     }
 
     public void closeAction(ActionEvent actionEvent) {
+        System.exit(1);
     }
 }
