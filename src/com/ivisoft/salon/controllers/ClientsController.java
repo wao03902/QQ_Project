@@ -2,7 +2,6 @@ package com.ivisoft.salon.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -35,43 +34,24 @@ public class ClientsController implements Initializable {
     private TableColumn<Client, String> nameColumn;
     
     @FXML
-    private TableColumn<Client, String> surnameColumn;
-    
-    @FXML
-    private TableColumn<Client, String> fathernameColumn;
-
-    @FXML
     private TableColumn<Client, String> phoneColumn;
     
     @FXML
-    private TableColumn<Client, LocalDate> createDateColumn;
-    
-    @FXML
-    private TableColumn<Client, String> statusColumn;
+    private TableColumn<Client, String> visitAmountColumn;
     
     @FXML
     private Button addClientBtn;
     
+    public static ObservableList<Client> clientList = null;
+    
     public void initialize(URL url, ResourceBundle rb) {
-        
-//        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-//        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-//        surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
-//        fathernameColumn.setCellValueFactory(new PropertyValueFactory<>("fathername"));
-//        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
-//        createDateColumn.setCellValueFactory(new PropertyValueFactory<>("createDate"));
-//        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
-        
         List<Client> clients = ClientDao.getAllClients();
-        
-        ObservableList<Client> clientList = FXCollections.observableArrayList(clients);
+        clientList = FXCollections.observableArrayList(clients);
         clientsTable.setItems(clientList);
-            
     }
 
     @FXML
     private void newClient(ActionEvent event) throws IOException {
-//        stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ivisoft/salon/gui/addClient.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

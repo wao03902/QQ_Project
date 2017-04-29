@@ -1,5 +1,6 @@
 package com.ivisoft.salon.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AddClientController implements Initializable {
     
@@ -43,7 +45,7 @@ public class AddClientController implements Initializable {
     }
     
     @FXML
-    private void saveAction(ActionEvent event) {
+    private void saveAction(ActionEvent event) throws IOException {
         Client client = new Client();
         client.setName(nameField.getText());
         client.setPhone(telField.getText());
@@ -52,6 +54,12 @@ public class AddClientController implements Initializable {
         client.setSex(sexComboBox.getValue());
         
         ClientDao.createClient(client);
+        
+        Stage stage = (Stage) nameField.getScene().getWindow();
+        stage.close();
+        
+        ClientsController.clientList.removeAll(ClientsController.clientList);
+        ClientsController.clientList.addAll(ClientDao.getAllClients());
     }
     
     @FXML

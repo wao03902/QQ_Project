@@ -10,7 +10,7 @@
 
 <?import javafx.scene.control.Button?>
 	
-<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ivisoft.salon.controllers.ClientsController">
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ivisoft.salon.controllers.ClientsController">
     
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -33,9 +33,7 @@
 		     <TableColumn text="Телефон" fx:id="phoneColumn">
 		        <cellValueFactory><PropertyValueFactory property="phone" /></cellValueFactory>
 		     </TableColumn>
-		     <TableColumn text="Количество посещений" fx:id="phoneColumn">
-		        <cellValueFactory><PropertyValueFactory property="phone" /></cellValueFactory>
-		     </TableColumn>
+		     <TableColumn text="Количество посещений" fx:id="countColumn"></TableColumn>
      </columns>
      
     </TableView>
