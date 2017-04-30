@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBUtil {
     
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/qqdb";
+    private static final String URL = "jdbc:mysql://localhost:3306/qqdb?autoReconnect=true&useSSL=false";
     private static final String USER = "qq";
     private static final String PASSWORD = "qqqq";
     

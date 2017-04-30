@@ -8,81 +8,84 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivisoft.salon.controllers.AddStaffController">
-   <children>
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ivisoft.salon.controllers.AddStaffController">
+    
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
    
-   	<VBox>
-   	    <ImageView fx:id="photo" />
+   	<VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+   	    <ImageView fx:id="photo" fitWidth="100" fitHeight="100">
+   	    	<HBox.margin>
+	             <Insets bottom="10.0" />
+          	</HBox.margin>
+   	    </ImageView>
+   	    
    		<Button text = "Загрузить фото" fx:id="loadPhoto" onAction="#loadAction" />
    	</VBox>
-      <VBox layoutX="88.0" layoutY="57.0">
-         <children>
-            <HBox>
-               <children>
-                  <Label alignment="CENTER" layoutX="232.0" layoutY="25.0" prefWidth="85.0" text="Имя, Фамилия:">
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="nameFiled" layoutX="270.0" layoutY="20.0" prefHeight="20.0" prefWidth="120.0">
-                     <HBox.margin>
-                        <Insets left="15.0" right="15.0" top="7.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <HBox>
-               <children>
-                  <Label alignment="CENTER" layoutX="201.0" layoutY="105.0" prefWidth="85.0" text="Телефон 1:">
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="tel1Field" layoutX="270.0" layoutY="100.0" prefWidth="120.0">
-                     <HBox.margin>
-                        <Insets left="15.0" right="15.0" top="7.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <HBox>
-               <children>
-                  <Label alignment="CENTER" layoutX="201.0" layoutY="145.0" prefWidth="85.0" text="Телефон 2:">
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="tel2Field" layoutX="270.0" layoutY="140.0" prefWidth="120.0">
-                     <HBox.margin>
-                        <Insets left="15.0" right="15.0" top="7.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <HBox>
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="226.0" layoutY="185.0" prefWidth="85.0" text="E-mail:">
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="emailField" layoutX="270.0" layoutY="180.0" prefWidth="120.0">
-                     <HBox.margin>
-                        <Insets left="15.0" right="15.0" top="7.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-         </children>
+      <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+	      <HBox>
+	       <Label alignment="BASELINE_LEFT" layoutX="232.0" layoutY="25.0" prefWidth="85.0" text="Имя, Фамилия:">
+	          <HBox.margin>
+	             <Insets left="10.0" right="10.0" top="10.0" />
+	          </HBox.margin>
+	       </Label>
+	       <TextField fx:id="nameFiled" layoutX="270.0" layoutY="20.0" prefHeight="20.0" prefWidth="120.0">
+	          <HBox.margin>
+	             <Insets left="15.0" right="15.0" top="7.0" />
+	          </HBox.margin>
+	       </TextField>
+	      </HBox>
+	      <HBox>
+	       <Label alignment="BASELINE_LEFT" layoutX="201.0" layoutY="105.0" prefWidth="85.0" text="Телефон 1:">
+	          <HBox.margin>
+	             <Insets left="10.0" right="10.0" top="10.0" />
+	          </HBox.margin>
+	       </Label>
+	       <TextField fx:id="tel1Field" layoutX="270.0" layoutY="100.0" prefWidth="120.0">
+	          <HBox.margin>
+	             <Insets left="15.0" right="15.0" top="7.0" />
+	          </HBox.margin>
+	       </TextField>
+	      </HBox>
+	      <HBox>
+	       <Label alignment="BASELINE_LEFT" layoutX="201.0" layoutY="145.0" prefWidth="85.0" text="Телефон 2:">
+	          <HBox.margin>
+	             <Insets left="10.0" right="10.0" top="10.0" />
+	          </HBox.margin>
+	       </Label>
+	       <TextField fx:id="tel2Field" layoutX="270.0" layoutY="140.0" prefWidth="120.0">
+	          <HBox.margin>
+	             <Insets left="15.0" right="15.0" top="7.0" />
+	          </HBox.margin>
+	       </TextField>
+	      </HBox>
+	      <HBox>
+	       <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="226.0" layoutY="185.0" prefWidth="85.0" text="E-mail:">
+	          <HBox.margin>
+	             <Insets left="10.0" right="10.0" top="10.0" />
+	          </HBox.margin>
+	       </Label>
+	       <TextField fx:id="emailField" layoutX="270.0" layoutY="180.0" prefWidth="120.0">
+	          <HBox.margin>
+	             <Insets left="15.0" right="15.0" top="7.0" />
+	          </HBox.margin>
+	       </TextField>
+	      </HBox>
       </VBox>
-      <Button fx:id="saveButton" layoutX="15.0" layoutY="340.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="50.0" prefWidth="200.0" text="Сохранить" />
-      <Button fx:id="cancelButton" layoutX="235.0" layoutY="340.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="50.0" prefWidth="200.0" text="Отмена" />
-      <TextField fx:id="kakayataHrenField" layoutX="15.0" layoutY="200.0" prefHeight="125.0" prefWidth="420.0" />
-      <Label layoutX="129.0" layoutY="7.0" text="НОВЫЙ СОТРУДНИК">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-   </children>
-</Pane>
+      
+      <HBox GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2" alignment="CENTER">
+	      <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveAction"  text="Сохранить">
+	      	<HBox.margin>
+	             <Insets right="10.0" />
+	          </HBox.margin>
+	      </Button>
+	      <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelAction" text="Отмена" >
+	      	<HBox.margin>
+	             <Insets left="10.0" />
+	          </HBox.margin>
+	      </Button>
+	</HBox>
+</GridPane>

@@ -7,18 +7,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.ivisoft.salon.dao.MasterDao;
-import com.ivisoft.salon.model.Client;
 import com.ivisoft.salon.model.Master;
+import com.ivisoft.salon.utils.JavaFXUtil;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -27,7 +24,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -92,12 +88,8 @@ public class StaffController implements Initializable {
     
     @FXML
     private void addAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ivisoft/salon/gui/addStaff.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Add master");
-        stage.setScene(new Scene(root1));
+        Stage stage = JavaFXUtil.createStage("/com/ivisoft/salon/gui/addStaff.fxml");
+        stage.setTitle("New client");
         stage.show();
     }
     
