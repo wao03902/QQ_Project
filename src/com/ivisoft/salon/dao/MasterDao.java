@@ -1,5 +1,13 @@
 package com.ivisoft.salon.dao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +35,7 @@ public class MasterDao {
                 master = getMasterFromResultSet(rs);
             }
             
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (ClassNotFoundException | SQLException | IOException e) {
             e.printStackTrace();
         }
         
@@ -48,7 +56,7 @@ public class MasterDao {
                 masters.add(getMasterFromResultSet(rs));
             }
             
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
         return masters;
@@ -77,7 +85,7 @@ public class MasterDao {
                 
             }
             
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
         
@@ -86,41 +94,54 @@ public class MasterDao {
     
     public static void createMaster(Master master) {
         
-        String query = "INSERT INTO qq_masters(master_name, master_phone, master_extra_phone, master_email, master_status, master_photo) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO qq_masters(master_name, master_phone, master_phone_extra, master_email, master_status, master_photo) VALUES (?, ?, ?, ?, ?, ?)";
             
         try (Connection conn = DBUtil.getConnection();
             PreparedStatement pst = conn.prepareStatement(query)) {
+
+            conn.setAutoCommit(false);
+            
+            FileInputStream fileInputStream = new FileInputStream(master.getPhoto());
+            int length = (int) master.getPhoto().length();
             
             pst.setString(1, master.getName());
             pst.setString(2, master.getPhone());
             pst.setString(3, master.getExtraPhone());
             pst.setString(4, master.getEmail());
             pst.setInt(5, master.getStatus());
-            pst.setBlob(6, master.getPhoto());
+            pst.setBinaryStream(6, fileInputStream, length); 
             
-            pst.executeUpdate(query);
+            pst.executeUpdate();
+            conn.commit();
             
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
     }
     
-    public static void updateMaster(Master master) {
+    public static void updateMaster(Master master) throws FileNotFoundException {
         
         String query = "UPDATE qq_masters SET master_name = ?, master_phone = ?, master_phone_extra = ?, master_email = ?, master_photo = ?, master_status = ? WHERE id_master = ?";
         
         try (Connection conn = DBUtil.getConnection();
             PreparedStatement pst = conn.prepareStatement(query)) {
             
+            conn.setAutoCommit(false);
+            
+            FileInputStream fileInputStream = new FileInputStream(master.getPhoto());
+            int length = (int) master.getPhoto().length();
+            
             pst.setString(1, master.getName());
             pst.setString(2, master.getPhone());
             pst.setString(3, master.getExtraPhone());
             pst.setString(4, master.getEmail());
-            pst.setBlob(5, master.getPhoto());
+            pst.setBinaryStream(5, fileInputStream, length); 
             pst.setInt(6, master.getStatus());
             pst.setInt(7, master.getId());
             
             pst.executeUpdate();
+            
+            conn.commit();
             
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -137,7 +158,7 @@ public class MasterDao {
         }
     }
     
-    private static Master getMasterFromResultSet(ResultSet rs) throws SQLException {
+    private static Master getMasterFromResultSet(ResultSet rs) throws SQLException, FileNotFoundException, IOException {
         Master master = new Master();
         
         master.setId(rs.getInt("id_master"));
@@ -145,9 +166,30 @@ public class MasterDao {
         master.setEmail(rs.getString("master_email"));
         master.setPhone(rs.getString("master_phone"));
         master.setExtraPhone(rs.getString("master_phone_extra"));
-        master.setPhoto(rs.getBlob("master_photo"));
         master.setStatus(rs.getInt("master_status"));
         master.setCreateDate(rs.getTimestamp("master_createdate").toLocalDateTime());
+        
+        Blob file = rs.getBlob("master_photo");
+        if (file == null) 
+            return master;
+        
+        InputStream x = file.getBinaryStream();
+        int size = x.available();
+        byte b[] = new byte[size];
+        x.read(b);
+        File cacheDir = new File("src\\imageCache");
+        if (cacheDir.exists()) {
+            cacheDir.delete();
+            cacheDir.mkdir();
+        } else {
+            cacheDir.mkdir();
+        }
+        
+        try (OutputStream targetFile = new FileOutputStream("src\\imageCache\\" + master.getName())) {
+            targetFile.write(b);
+        }
+        
+        master.setPhoto(new File("src\\imageCache\\" + master.getName()));
         
         return master;
     }

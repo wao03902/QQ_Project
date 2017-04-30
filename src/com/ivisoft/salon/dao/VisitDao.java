@@ -156,6 +156,23 @@ public class VisitDao {
         }
     }
     
+    public static int countVisitsByClientId(int id) {
+        String query = "SELECT COUNT(*) FROM qq_visits WHERE id_client = " + id;
+        int visitsAmount = 0;
+        try (Connection conn = DBUtil.getConnection();
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(query)) {
+            
+            if (rs.next()) {
+                visitsAmount = rs.getInt(1);
+            }
+                
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return visitsAmount;
+    }
+    
     private static Visit getVisitFromResultSet(ResultSet rs) throws SQLException {
         Visit visit = new Visit();
         

@@ -2,15 +2,12 @@ package com.ivisoft.salon.controllers;
 
 import java.io.IOException;
 
+import com.ivisoft.salon.utils.JavaFXUtil;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 public class MainController {
     
@@ -46,22 +43,13 @@ public class MainController {
     }
     
     @FXML
-    private void clientsAction(ActionEvent event) throws IOException {
-        
-        Stage stage = (Stage) clientsButton.getScene().getWindow();
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ivisoft/salon/gui/clients.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Main window");
-        stage.setScene(new Scene(root1));
-        stage.show();
+    private void clientsAction(ActionEvent event) throws Exception {
+        JavaFXUtil.replaceSceneContent(event, "/com/ivisoft/salon/gui/clients.fxml");
     }
     
     @FXML
-    private void staffAction(ActionEvent event) {
-        
+    private void staffAction(ActionEvent event) throws IOException {
+        JavaFXUtil.replaceSceneContent(event, "/com/ivisoft/salon/gui/staff.fxml");
     }
 
     @FXML

@@ -1,6 +1,6 @@
 package com.ivisoft.salon.model;
 
-import java.sql.Blob;
+import java.io.File;
 import java.time.LocalDateTime;
 
 import javafx.beans.property.IntegerProperty;
@@ -12,7 +12,7 @@ import javafx.beans.property.StringProperty;
 
 public class Master {
     
-    private Blob photo;
+    private ObjectProperty<File> photo = new SimpleObjectProperty<>();
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty name = new SimpleStringProperty();
     private StringProperty phone = new SimpleStringProperty();
@@ -29,12 +29,12 @@ public class Master {
         this.id.set(id);
     }
     
-    public Blob getPhoto() {
-        return photo;
+    public File getPhoto() {
+        return photo.get();
     }
     
-    public void setPhoto(Blob photo) {
-        this.photo = photo;
+    public void setPhoto(File photo) {
+        this.photo.set(photo);
     }
     
     public String getName() {

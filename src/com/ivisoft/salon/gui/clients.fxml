@@ -33,7 +33,9 @@
 		     <TableColumn text="Телефон" fx:id="phoneColumn">
 		        <cellValueFactory><PropertyValueFactory property="phone" /></cellValueFactory>
 		     </TableColumn>
-		     <TableColumn text="Количество посещений" fx:id="countColumn"></TableColumn>
+		     <TableColumn text="Количество посещений" fx:id="visitAmountColumn">
+		     	<cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
+		     </TableColumn>
      </columns>
      
     </TableView>

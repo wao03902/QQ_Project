@@ -6,8 +6,9 @@
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivisoft.salon.controllers.StaffController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="800.0" />
@@ -46,10 +47,18 @@
             <Button fx:id="addButton" layoutX="399.0" layoutY="491.0" mnemonicParsing="false" onAction="#addAction" text="Добавить" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="40.0" />
             <TableView fx:id="staffTable" layoutX="60.0" layoutY="40.0" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="799.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="60.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columns>
-                <TableColumn prefWidth="75.0" text="#" />
-                <TableColumn prefWidth="75.0" text="Фото" />
-                  <TableColumn prefWidth="75.0" text="ФИО" />
-                  <TableColumn prefWidth="75.0" text="Телефон" />
+                <TableColumn prefWidth="75.0" text="#">
+					<cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>                
+                </TableColumn>
+                <TableColumn prefWidth="75.0" text="Фото" fx:id="photoColumn">
+                	<cellValueFactory><PropertyValueFactory property="photo" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="75.0" text="ФИО">
+                	<cellValueFactory><PropertyValueFactory property="name" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="75.0" text="Телефон">
+                	<cellValueFactory><PropertyValueFactory property="phone" /></cellValueFactory>
+                </TableColumn>
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

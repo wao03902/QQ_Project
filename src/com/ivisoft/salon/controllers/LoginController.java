@@ -6,41 +6,22 @@
 package com.ivisoft.salon.controllers;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.swing.JOptionPane;
 
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.ivisoft.salon.QQ_Project;
+import com.ivisoft.salon.utils.JavaFXUtil;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Андпрей
- */
-public class LoginController extends Dialog implements Initializable {
+public class LoginController implements Initializable {
 
     @FXML
     private Button okButton;
@@ -56,9 +37,6 @@ public class LoginController extends Dialog implements Initializable {
 
     private QQ_Project application;
 
-    /**
-     * Initializes the controller class.
-     */
     public void initialize(URL url, ResourceBundle rb) {
         loginFiled.setText("AnDrUsHa");
         passwordField.setText("Andrusha");
@@ -69,18 +47,8 @@ public class LoginController extends Dialog implements Initializable {
     }
 
     @FXML
-    private void loginAction(ActionEvent event) throws Exception {
-
-            Stage stage = (Stage) okButton.getScene().getWindow();
-            stage.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ivisoft/salon/gui/main.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Main window");
-            stage.setScene(new Scene(root1));
-            stage.show();
-          
+    private void loginAction(ActionEvent event) {
+        JavaFXUtil.replaceSceneContent(event, "/com/ivisoft/salon/gui/main.fxml");
     }
 
     @FXML

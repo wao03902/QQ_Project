@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -55,15 +56,17 @@ public class AddClientController implements Initializable {
         
         ClientDao.createClient(client);
         
-        Stage stage = (Stage) nameField.getScene().getWindow();
+        Node source = (Node) event.getSource(); 
+        Stage stage = (Stage) source.getScene().getWindow(); 
         stage.close();
         
-        ClientsController.clientList.removeAll(ClientsController.clientList);
-        ClientsController.clientList.addAll(ClientDao.getAllClients());
+        ClientsController.refreshTable();
     }
     
     @FXML
     private void cancelAction(ActionEvent event) {
-        
+        Node source = (Node) event.getSource(); 
+        Stage parentStage = (Stage) source.getScene().getWindow(); 
+        parentStage.close(); 
     }
 }
