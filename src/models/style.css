@@ -1,0 +1,25 @@
+.tab *.tab-label {
+    -fx-rotate: 90;
+}
+.tab {
+-fx-focus-color: transparent;
+-fx-padding: 3em 0.5em 3em 0.5em;
+}
+#topPane{
+    -fx-background-color: linear-gradient(to bottom, #004750 0%, #5FD7ED 100%);
+}
+#mainPane{
+    -fx-background-color: #3A3A3A;
+}
+#okButton{
+    -fx-background-color: #5AD1E6;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+#cancelButton{
+    -fx-background-color: #FFB754;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}

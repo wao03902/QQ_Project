@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane stylesheets="@style.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+  <columnConstraints>
+    <ColumnConstraints />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="600.0" prefWidth="600.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="550.0" prefHeight="550.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <tabs>
+          <Tab text="Расписание">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="586.0" layoutY="194.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" text="Тут календарь!" AnchorPane.rightAnchor="20.0" />
+                        <TableView fx:id="mainTable" layoutX="41.0" layoutY="27.0" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="443.0" prefWidth="479.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="20.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="Время" />
+                              <TableColumn prefWidth="75.0" text="Мастер" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Персонал">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="staffTable" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="799.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="#" />
+                              <TableColumn prefWidth="75.0" text="ФИО" />
+                              <TableColumn prefWidth="75.0" text="Телефон" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="addStaffButton" mnemonicParsing="false" onAction="#addStaffAction" text="Добавить" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Услуги">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="20.0" layoutY="17.0" text="Раздел" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                        <Button fx:id="sectionButton" layoutX="232.0" layoutY="13.0" mnemonicParsing="false" onAction="#sectionAction" text="Создать раздел" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="15.0" />
+                        <ChoiceBox fx:id="sectionForm" layoutX="68.0" layoutY="13.0" prefWidth="150.0" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="15.0" />
+                        <TableView fx:id="serviceTable" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="799.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="#" />
+                              <TableColumn prefWidth="75.0" text="Мастер" />
+                              <TableColumn prefWidth="75.0" text="Стоимость" />
+                              <TableColumn prefWidth="75.0" text="Длительность" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="addServiceButton" mnemonicParsing="false" onAction="#addServiceAction" text="Добавить" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Клиенты">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="clientsTable" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="799.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="#" />
+                              <TableColumn prefWidth="75.0" text="Имя" />
+                              <TableColumn prefWidth="75.0" text="Телефон" />
+                              <TableColumn prefWidth="75.0" text="Кол-во посещений" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="addClientButton" mnemonicParsing="false" onAction="#addClientAction" text="Добавить" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <AnchorPane GridPane.columnIndex="1">
+         <children>
+            <Button mnemonicParsing="false" onAction="#logoutAction" text="LOGOUT" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0" GridPane.columnIndex="1" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
