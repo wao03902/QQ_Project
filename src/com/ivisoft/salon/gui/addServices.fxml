@@ -7,96 +7,115 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="324.0" style="-fx-background-color: #3A3A3A;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ServicesController">
    <children>
-      <Label text="Новая услуга">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <VBox.margin>
-            <Insets bottom="5.0" left="100.0" right="5.0" top="5.0" />
-         </VBox.margin>
-      </Label>
-      <HBox prefHeight="50.0" prefWidth="200.0">
+      <Pane id="topPane" prefHeight="80.0" prefWidth="300.0">
          <children>
-            <Label prefWidth="80.0" text="Название">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
+            <Label layoutX="79.0" layoutY="10.0" text="Новая услуга" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
             </Label>
-            <TextField fx:id="nameField" prefWidth="160.0">
+         </children>
+      </Pane>
+      <HBox minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="120.0" text="Название:" textFill="WHITE">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="30.0" top="15.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameField" alignment="CENTER" minHeight="-Infinity" prefHeight="18.0" prefWidth="120.0" promptText="...">
+               <HBox.margin>
+                  <Insets left="20.0" top="20.0" />
                </HBox.margin>
             </TextField>
          </children>
       </HBox>
-      <HBox prefHeight="50.0" prefWidth="200.0">
+      <HBox minHeight="-Infinity" prefHeight="25.0" prefWidth="324.0">
          <children>
-            <Label prefWidth="80.0" text="Цена">
+            <Label prefWidth="120.0" text="Цена:" textFill="WHITE">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="30.0" top="7.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
             </Label>
-            <TextField fx:id="priceField" prefWidth="160.0">
+            <TextField fx:id="priceField" alignment="CENTER" minHeight="-Infinity" prefHeight="18.0" prefWidth="120.0" promptText="...">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="20.0" top="10.0" />
                </HBox.margin>
             </TextField>
          </children>
       </HBox>
-      <HBox prefHeight="50.0" prefWidth="200.0">
+      <HBox minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
          <children>
-            <Label prefWidth="80.0" text="Длительность">
+            <Label prefHeight="25.0" prefWidth="120.0" text="Длительность:" textFill="WHITE">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="30.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
             </Label>
-            <TextField fx:id="durationField" prefWidth="160.0">
+            <TextField fx:id="durationField" alignment="CENTER" minHeight="-Infinity" prefHeight="18.0" prefWidth="120.0" promptText="...">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="20.0" top="15.0" />
                </HBox.margin>
             </TextField>
          </children>
       </HBox>
-      <HBox prefHeight="50.0" prefWidth="200.0">
+      <HBox minHeight="-Infinity" prefHeight="40.0" prefWidth="324.0">
          <children>
-            <Label prefWidth="80.0" text="Раздел">
+            <Label prefWidth="120.0" text="Раздел:" textFill="WHITE">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="30.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
             </Label>
-            <ChoiceBox fx:id="selectionField" prefWidth="160.0">
+            <ChoiceBox fx:id="selectionField" minHeight="-Infinity" prefHeight="18.0" prefWidth="120.0">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="20.0" top="5.0" />
                </HBox.margin>
             </ChoiceBox>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </HBox>
+      <Label prefWidth="120.0" text="Описание:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="30.0" />
+         </VBox.margin>
+      </Label>
       <HBox prefHeight="150.0" prefWidth="200.0">
          <children>
-            <Label prefWidth="80.0" text="Описание">
+            <TextArea fx:id="descField" prefHeight="129.0" prefWidth="355.0">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Label>
-            <TextArea fx:id="descField" prefHeight="200.0" prefWidth="160.0">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
                </HBox.margin>
             </TextArea>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveAction" prefHeight="100.0" prefWidth="150.0" text="Сохранить">
+            <Button id="okButton" fx:id="saveButton" mnemonicParsing="false" onAction="#saveAction" prefHeight="30.0" prefWidth="120.0" text="Сохранить">
                <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets left="30.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelAction" prefHeight="100.0" prefWidth="150.0" text="Отмена">
+            <Button id="cancelButton" fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelAction" prefHeight="30.0" prefWidth="120.0" text="Отмена">
                <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets left="25.0" top="20.0" />
                </HBox.margin>
             </Button>
          </children>

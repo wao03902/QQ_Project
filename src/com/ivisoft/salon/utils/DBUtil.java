@@ -11,6 +11,8 @@ public class DBUtil {
     private static final String USER = "qq";
     private static final String PASSWORD = "qqqq";
     
+    public Connection connection;
+    
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         
         Connection conn = null;

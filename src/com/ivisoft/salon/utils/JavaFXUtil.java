@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 public class JavaFXUtil {
     
-    public static Parent replaceSceneContent(ActionEvent event, String fxml) {
+    public static Parent replaceSceneContent(ActionEvent event, String fxml, String css) {
         
         Node source = (Node) event.getSource(); 
         Stage stage = (Stage) source.getScene().getWindow();
@@ -28,8 +28,8 @@ public class JavaFXUtil {
             page = (Parent) FXMLLoader.load(QQ_Project.class.getResource(fxml), null, new JavaFXBuilderFactory());
             Scene scene = stage.getScene();
             if (scene == null) {
-                scene = new Scene(page, 800, 500);
-//                scene.getStylesheets().add(getClass().getResource("demo.css").toExternalForm());
+                scene = new Scene(page);
+//                scene.getStylesheets().add(css);
                 stage.setScene(scene);
             } else {
                 stage.getScene().setRoot(page);
@@ -41,12 +41,17 @@ public class JavaFXUtil {
         return page;
     }
     
-    public static Stage createStage(String fxml) throws IOException {
+    public static Stage createStage(String fxml) {
         Stage stage = new Stage();
-        Parent page = (Parent) FXMLLoader.load(QQ_Project.class.getResource(fxml), null, new JavaFXBuilderFactory());
+        Parent page = null;
+        try {
+            page = (Parent) FXMLLoader.load(QQ_Project.class.getResource(fxml), null, new JavaFXBuilderFactory());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(page);
         scene.setRoot(page);
-//        scene.getStylesheets().add(getClass().getResource("demo.css").toExternalForm());
+//        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.sizeToScene();
         return stage;

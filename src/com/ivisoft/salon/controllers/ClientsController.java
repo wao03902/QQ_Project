@@ -81,14 +81,14 @@ public class ClientsController implements Initializable {
     @FXML
     private void newClient(ActionEvent event) throws IOException {
         
-        Stage stage = JavaFXUtil.createStage("/com/ivisoft/salon/gui/addClient.fxml");
-        stage.setTitle("New client");
-        stage.show();
+//        Stage stage = JavaFXUtil.createStage("/com/ivisoft/salon/gui/addClient.fxml");
+//        stage.setTitle("New client");
+//        stage.show();
     }
     
     @FXML
     private void cancel(ActionEvent event) throws Exception {
-        JavaFXUtil.replaceSceneContent(event, "/com/ivisoft/salon/gui/main.fxml");
+//        JavaFXUtil.replaceSceneContent(event, "/com/ivisoft/salon/gui/main.fxml");
     }
     
     public static void refreshTable() {

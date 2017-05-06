@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.ivisoft.salon.QQ_Project;
 import com.ivisoft.salon.dao.MasterDao;
 import com.ivisoft.salon.model.Master;
 import com.ivisoft.salon.utils.JavaFXUtil;
@@ -14,8 +15,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -88,7 +92,9 @@ public class StaffController implements Initializable {
     
     @FXML
     private void addAction(ActionEvent event) throws IOException {
-        Stage stage = JavaFXUtil.createStage("/com/ivisoft/salon/gui/addStaff.fxml");
+        Stage stage = new Stage();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com/ivisoft/salon/gui/addStaff.fxml"), null, new JavaFXBuilderFactory()));
+        stage.setScene(scene);
         stage.setTitle("New client");
         stage.show();
     }
@@ -97,7 +103,7 @@ public class StaffController implements Initializable {
     private void logoutAction(ActionEvent event) {
         
     }
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         masterList = FXCollections.observableList((MasterDao.getAllMasters()));

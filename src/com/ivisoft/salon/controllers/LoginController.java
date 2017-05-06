@@ -5,6 +5,7 @@
  */
 package com.ivisoft.salon.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,11 +16,16 @@ import com.ivisoft.salon.utils.JavaFXUtil;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 
@@ -28,27 +34,23 @@ public class LoginController implements Initializable {
     @FXML
     private Button closeButton;
     @FXML
-    private PasswordField passwordField;
+    private PasswordField passTextField;
     @FXML
-    private TextField loginFiled;
+    private TextField usernameTextField;
     @FXML
-    private Hyperlink changePasswordLabel;
-    @FXML
-
-    private QQ_Project application;
+    private Hyperlink changePassHiperLink;
 
     public void initialize(URL url, ResourceBundle rb) {
-        loginFiled.setText("AnDrUsHa");
-        passwordField.setText("Andrusha");
-    }
-
-    public void setApp(QQ_Project application) {
-        this.application = application;
     }
 
     @FXML
     private void loginAction(ActionEvent event) {
-        JavaFXUtil.replaceSceneContent(event, "/com/ivisoft/salon/gui/main.fxml");
+        
+        QQ_Project.primaryStage.close();
+        
+        //            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com/ivisoft/salon/gui/main.fxml"), null, new JavaFXBuilderFactory()));
+                    QQ_Project.primaryStage.setScene(QQ_Project.mainScene);
+                    QQ_Project.primaryStage.show();
     }
 
     @FXML
