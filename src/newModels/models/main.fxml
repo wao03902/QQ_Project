@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="940.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="940.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="800.0" />
@@ -69,7 +67,7 @@
             </Pane>
             <ImageView fitHeight="94.0" fitWidth="191.0" layoutX="31.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@title.png" />
+                  <Image url="@../images/title.png" />
                </image>
             </ImageView>
             <Button id="LogoutButton" fx:id="logoutButton" alignment="TOP_CENTER" layoutX="650.0" layoutY="28.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="81.0" prefWidth="81.0" textFill="WHITE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
@@ -79,7 +77,7 @@
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@LogOut.png" />
+                        <Image url="@../images/LogOut.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -105,7 +103,7 @@
             </Label>
             <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="65.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@user.png" />
+                  <Image url="@../images/user.png" />
                </image></ImageView>
          </children>
       </Pane>

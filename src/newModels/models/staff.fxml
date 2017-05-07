@@ -69,7 +69,7 @@
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@LogOut.png" />
+                        <Image url="@../images/LogOut.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -84,7 +84,7 @@
             </Pane>
             <ImageView fitHeight="94.0" fitWidth="191.0" layoutX="31.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@title.png" />
+                  <Image url="@../images/title.png" />
                </image>
             </ImageView>
             <Label layoutX="666.0" layoutY="67.0" text="Log Out" textFill="WHITE">
@@ -108,7 +108,7 @@
             </Label>
             <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="65.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@user.png" />
+                  <Image url="@../images/user.png" />
                </image></ImageView>
          </children>
       </Pane>
