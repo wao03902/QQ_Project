@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="fotoView" fitHeight="140.0" fitWidth="140.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="232.0" layoutY="25.0" text="Имя:" />
+      <Label layoutX="206.0" layoutY="65.0" text="Фимилия:" />
+      <Label layoutX="201.0" layoutY="105.0" text="Телефон 1:" />
+      <Label layoutX="201.0" layoutY="145.0" text="Телефон 2:" />
+      <Label layoutX="200.0" layoutY="224.0" text="Должность:" />
+      <Label layoutX="226.0" layoutY="185.0" text="e-mail:" />
+      <TextField fx:id="tel2Field" layoutX="270.0" layoutY="140.0" prefWidth="120.0" />
+      <TextField fx:id="emailField" layoutX="270.0" layoutY="180.0" prefWidth="120.0" />
+      <TextField fx:id="positionField" layoutX="270.0" layoutY="220.0" prefWidth="120.0" />
+      <TextField fx:id="tel1Field" layoutX="270.0" layoutY="100.0" prefWidth="120.0" />
+      <TextField fx:id="surnameField" layoutX="270.0" layoutY="60.0" prefWidth="120.0" />
+      <TextField fx:id="nameFiled" layoutX="270.0" layoutY="20.0" prefHeight="20.0" prefWidth="120.0" />
+      <Button fx:id="uploadFotoButton" layoutX="40.0" layoutY="190.0" mnemonicParsing="false" onAction="#uploadFotoAction" text="Загрузить фото" />
+      <Button fx:id="saveButton" layoutX="20.0" layoutY="280.0" mnemonicParsing="false" onAction="#saveAction" prefWidth="80.0" text="Сохранить" />
+      <Button fx:id="exitButton" layoutX="300.0" layoutY="280.0" mnemonicParsing="false" onAction="#exitAction" prefWidth="80.0" text="Выйти" />
+   </children>
+</Pane>

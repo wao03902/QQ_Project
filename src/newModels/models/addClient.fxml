@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="380.0" style="-fx-background-color: #3A3A3A;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClientsController">
+   <children>
+      <Pane id="topPane" prefHeight="60.0" prefWidth="380.0">
+         <children>
+            <Label layoutX="58.0" layoutY="1.0" text="Новый Клиент" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <HBox prefHeight="67.0" prefWidth="380.0">
+         <children>
+            <Label prefWidth="80.0" text="Имя:" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="40.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameField" alignment="CENTER" minHeight="-Infinity" prefHeight="22.0" prefWidth="140.0" promptText="...">
+               <HBox.margin>
+                  <Insets left="80.0" top="30.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox minHeight="-Infinity" prefHeight="38.0" prefWidth="380.0">
+         <children>
+            <Label prefWidth="80.0" text="Телефон:" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="telField" alignment="CENTER" minHeight="-Infinity" prefHeight="22.0" prefWidth="140.0" promptText="...">
+               <HBox.margin>
+                  <Insets left="80.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <Label prefHeight="25.0" prefWidth="107.0" text="Примечание:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="40.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="165.0" prefWidth="380.0">
+         <children>
+            <TextArea fx:id="noteField" prefHeight="97.0" prefWidth="300.0">
+               <HBox.margin>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="20.0" />
+               </HBox.margin>
+            </TextArea>
+         </children>
+      </HBox>
+      <HBox prefHeight="90.0" prefWidth="380.0">
+         <children>
+            <Button id="okButton" fx:id="saveButton" mnemonicParsing="false" onAction="#saveAction" prefHeight="40.0" prefWidth="140.0" text="Сохранить">
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </Button>
+            <Button id="cancelButton" fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelAction" prefHeight="40.0" prefWidth="140.0" text="Отмена">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
