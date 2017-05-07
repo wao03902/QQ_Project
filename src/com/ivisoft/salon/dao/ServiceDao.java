@@ -58,7 +58,7 @@ public class ServiceDao {
         List<Service> services = new ArrayList<>();
         
         String query = "SELECT * FROM qq_masters_services WHERE id_master = " + id;
-        String preparedQuery = "SELECT * FROM qq_services WHERE id_master = ?";
+        String preparedQuery = "SELECT * FROM qq_services WHERE id_service = ?";
         
         try (Connection conn = DBUtil.getConnection();
             Statement st = conn.createStatement();

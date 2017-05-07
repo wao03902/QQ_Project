@@ -83,4 +83,9 @@ public class Service {
     public void setStatus(Integer status) {
         this.status.set(status);
     }
+    
+    @Override
+    public String toString() {
+        return name.get();
+    }
 }

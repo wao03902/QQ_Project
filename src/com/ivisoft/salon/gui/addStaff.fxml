@@ -6,9 +6,26 @@
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.ListSelectionView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Hyperlink?>
 
-<Pane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: #3A3A3A;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StaffController">
+<Pane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: #3A3A3A;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivisoft.salon.controllers.AddOrEditStaffController">
    <children>
+   
+   <ImageView fx:id="photo" layoutX="40.0" layoutY="80.0" fitWidth="100" preserveRatio="true">
+   		<image>
+      		<Image url="@user.png" />
+   		</image>
+   </ImageView>
+   
+   <Hyperlink fx:id="loadPhotoLink" onAction="#loadAction" layoutX="35.0" layoutY="178.0" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Загрузить фото" textFill="#58bbcf">
+   		<font>
+            <Font size="14.0" />
+         </font>
+   </Hyperlink>
+      
       <VBox layoutX="181.0" layoutY="72.0">
          <children>
             <HBox>
@@ -21,7 +38,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nameFiled" layoutX="270.0" layoutY="20.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="120.0">
+                  <TextField fx:id="nameFiled" layoutX="270.0" layoutY="20.0" minHeight="-Infinity" prefHeight="25.0" prefWidth="120.0">
                      <HBox.margin>
                         <Insets right="15.0" top="10.0" />
                      </HBox.margin>
@@ -38,7 +55,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tel1Field" layoutX="270.0" layoutY="100.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="120.0">
+                  <TextField fx:id="tel1Field" layoutX="270.0" layoutY="100.0" minHeight="-Infinity" prefHeight="25.0" prefWidth="120.0">
                      <HBox.margin>
                         <Insets right="15.0" top="10.0" />
                      </HBox.margin>
@@ -55,7 +72,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="emailField" layoutX="270.0" layoutY="180.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="120.0">
+                  <TextField fx:id="emailField" layoutX="270.0" layoutY="180.0" minHeight="-Infinity" prefHeight="25.0" prefWidth="120.0">
                      <HBox.margin>
                         <Insets right="15.0" top="10.0" />
                      </HBox.margin>
@@ -64,12 +81,14 @@
             </HBox>
          </children>
       </VBox>
-      <Button id="okButton" fx:id="saveButton" layoutX="15.0" layoutY="340.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="30.0" prefWidth="120.0" text="Сохранить" />
-      <Button id="cancelButton" fx:id="cancelButton" layoutX="315.0" layoutY="340.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="30.0" prefWidth="120.0" text="Отмена" textFill="WHITE" />
-      <TextField fx:id="kakayataHrenField" layoutX="15.0" layoutY="246.0" prefHeight="79.0" prefWidth="420.0" />
+      <Button id="okButton" fx:id="saveButton" layoutX="25.0" layoutY="395.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="30.0" prefWidth="120.0" text="Сохранить" />
+      <Button id="cancelButton" fx:id="cancelButton" layoutX="310.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="30.0" prefWidth="120.0" text="Отмена" textFill="WHITE" />
+      
+      <ListSelectionView fx:id="selectServices" layoutX="15.0" layoutY="230.0" prefHeight="79.0" prefWidth="420.0" />
+      
       <Pane id="topPane" prefHeight="60.0" prefWidth="450.0" stylesheets="@style.css">
          <children>
-            <Label layoutX="109.0" layoutY="7.0" prefHeight="47.0" prefWidth="233.0" text="Новый Сотрудник" textFill="WHITE">
+            <Label fx:id="headerLabel" layoutX="109.0" layoutY="7.0" prefHeight="47.0" prefWidth="240.0" text="Добавление сотрудника" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
@@ -81,10 +100,5 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="16.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Загрузить фото" textFill="#58bbcf">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
    </children>
 </Pane>

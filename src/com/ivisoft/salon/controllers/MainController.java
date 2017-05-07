@@ -4,42 +4,59 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.ivisoft.salon.QQ_Project;
-import com.ivisoft.salon.utils.JavaFXUtil;
+import com.ivisoft.salon.Salon;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class MainController implements Initializable {
     
     @FXML
-    GridPane root;
+    private GridPane root;
     
     @FXML
-    ImageView logoPhoto;
+    private ImageView logoPhoto;
     
     @FXML
-    ImageView userPhoto;
+    private ImageView userPhoto;
     
     @FXML
-    Button scheduleButton;
+    private Button scheduleButton;
     
     @FXML
-    Button servicesButton;
+    private Button servicesButton;
     
     @FXML
-    Button clientsButton;
+    private Button clientsButton;
     
     @FXML
-    Button staffButton;
+    private Button staffButton;
     
     @FXML
-    Button statusButton;
+    private Button statusButton;
+    
+    @FXML
+    private Button logoutButton;
+    
+    @FXML
+    private Label timeLabel;
+    
+    @FXML
+    private Label dataLabel;
+    
+    @FXML
+    private TableView mainTable;
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
     
     @FXML
     private void scheduleAction(ActionEvent event) {
@@ -48,19 +65,20 @@ public class MainController implements Initializable {
     
     @FXML
     private void servicesAction(ActionEvent event) {
-
+        Salon.stage.setTitle("Услуги");
+        Salon.stage.setScene(Salon.servicesScene);
     }
     
     @FXML
     private void clientsAction(ActionEvent event) throws Exception {
-        JavaFXUtil.replaceSceneContent(event, "/com/ivisoft/salon/gui/clients.fxml", "/com/ivisoft/salon/gui/style.css");
+        Salon.stage.setTitle("Клиенты");
+        Salon.stage.setScene(Salon.clientsScene);
     }
     
     @FXML
     private void staffAction(ActionEvent event) throws IOException {
-//        root.getChildren().setAll(FXMLLoader.load(QQ_Project.class.getResource("/com/ivisoft/salon/gui/staff.fxml")));
-//        JavaFXUtil.replaceSceneContent(event, "/com/ivisoft/salon/gui/staff.fxml", "/com/ivisoft/salon/gui/style.css");
-        QQ_Project.primaryStage.setScene(QQ_Project.staffScene);
+        Salon.stage.setTitle("Персонал");
+        Salon.stage.setScene(Salon.staffScene);
     }
 
     @FXML
@@ -70,11 +88,6 @@ public class MainController implements Initializable {
     
     @FXML
     private void logoutAction(ActionEvent event) {
-        
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
         
     }
 }

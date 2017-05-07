@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -7,75 +8,109 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="940.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivisoft.salon.controllers.ServicesController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="800.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="800.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="0.0" prefHeight="450.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="0.0" prefHeight="350.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+      <VBox id="mainPane" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="scheduleButton" mnemonicParsing="false" onAction="#scheduleAction" prefHeight="40.0" prefWidth="110.0" text="Расписание">
+            <Button id="mainButton" fx:id="scheduleButton" mnemonicParsing="false" onAction="#scheduleAction" prefHeight="60.0" prefWidth="190.0" text="Расписание">
                <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets left="5.0" right="5.0" top="40.0" />
                </VBox.margin></Button>
-            <Button fx:id="servicesButton" mnemonicParsing="false" onAction="#servicesAction" prefHeight="40.0" prefWidth="150.0" text="Услуги">
+            <Button id="nowButton" fx:id="servicesButton" mnemonicParsing="false" onAction="#servicesAction" prefHeight="60.0" prefWidth="190.0" text="Услуги">
                <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets left="5.0" right="5.0" top="10.0" />
                </VBox.margin></Button>
-            <Button fx:id="customersButton" mnemonicParsing="false" onAction="#customersAction" prefHeight="40.0" prefWidth="150.0" text="Клиенты">
+            <Button id="mainButton" fx:id="clientsButton" mnemonicParsing="false" onAction="#clientsAction" prefHeight="60.0" prefWidth="190.0" text="Клиенты">
                <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets left="5.0" right="5.0" top="10.0" />
                </VBox.margin></Button>
-            <Button fx:id="staffButton" mnemonicParsing="false" onAction="#staffAction" prefHeight="40.0" prefWidth="150.0" text="Персонал">
+            <Button id="mainButton" fx:id="staffButton" mnemonicParsing="false" onAction="#staffAction" prefHeight="60.0" prefWidth="190.0" text="Персонал">
                <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets left="5.0" right="5.0" top="10.0" />
                </VBox.margin></Button>
-            <Button fx:id="statusButton" mnemonicParsing="false" onAction="#statusAction" prefHeight="40.0" prefWidth="150.0" text="Статистика">
+            <Button id="mainButton" fx:id="statusButton" mnemonicParsing="false" onAction="#statusAction" prefHeight="60.0" prefWidth="190.0" text="Статистика">
                <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="30.0" left="5.0" right="5.0" top="10.0" />
                </VBox.margin></Button>
          </children>
       </VBox>
       <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="addButton" layoutX="399.0" layoutY="491.0" mnemonicParsing="false" onAction="#addAction" text="Добавить" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="40.0" />
-            <TableView fx:id="mainTable" layoutX="60.0" layoutY="40.0" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="799.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="60.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TableView fx:id="mainTable" layoutX="32.0" layoutY="31.0" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columns>
-                <TableColumn prefWidth="75.0" text="#" />
-                <TableColumn prefWidth="75.0" text="Мастер" />
-                  <TableColumn prefWidth="75.0" text="Стоимость" />
-                  <TableColumn prefWidth="75.0" text="Длительность" />
+                <TableColumn prefWidth="39.0" text="№" />
+                <TableColumn prefWidth="274.0" text="Название услуги" />
+                  <TableColumn prefWidth="144.0" text="Стоимость" />
+                  <TableColumn prefWidth="162.0" text="Длительность" />
               </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
             </TableView>
-            <ChoiceBox fx:id="sectionForm" layoutX="234.0" layoutY="14.0" prefWidth="150.0" AnchorPane.leftAnchor="90.0" />
-            <Button fx:id="sectionButton" layoutX="522.0" layoutY="14.0" mnemonicParsing="false" onAction="#sectionAction" text="Создать раздел" AnchorPane.leftAnchor="250.0" />
-            <Label layoutX="89.0" layoutY="18.0" text="Раздел" AnchorPane.leftAnchor="40.0" />
+            <Button id="addButton" fx:id="addButton" layoutX="60.0" layoutY="373.0" mnemonicParsing="false" onAction="#addAction" prefHeight="35.0" prefWidth="125.0" text="Добавить" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="60.0" />
+            <Button id="editButton" fx:id="editButton" layoutX="205.0" layoutY="369.0" mnemonicParsing="false" onAction="#editAction" prefHeight="35.0" prefWidth="125.0" text="Редактировать" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="220.0" />
+            <Button id="deleteButton" fx:id="deleteButton" layoutX="370.0" layoutY="369.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="35.0" prefWidth="125.0" text="Удалить" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="380.0" />
+            <Button id="cancelButton" fx:id="addSelectionButton" layoutX="554.0" layoutY="21.0" mnemonicParsing="false" onAction="#addSelectionAction" text="Создать раздел" />
+            <Label layoutX="60.0" layoutY="22.0" text="Раздел:">
+               <font>
+                  <Font name="Arial" size="22.0" />
+               </font>
+            </Label>
+            <ChoiceBox id="selectionButton" fx:id="selectionBox" layoutX="155.0" layoutY="23.0" prefHeight="25.0" prefWidth="100.0" />
          </children>
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </AnchorPane>
-      <AnchorPane GridPane.columnIndex="1">
+      <AnchorPane id="topPane" prefHeight="43.0" prefWidth="723.0" GridPane.columnIndex="1">
          <children>
-            <Button fx:id="logoutButton" layoutX="440.0" mnemonicParsing="false" onAction="#logoutAction" text="LOGOUT" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets left="750.0" />
-               </GridPane.margin>
-            </Button>
+            <Button id="LogoutButton" fx:id="logoutButton" alignment="BOTTOM_CENTER" layoutX="659.0" layoutY="19.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="81.0" prefWidth="81.0" text="Log Out" textFill="WHITE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font></Button>
+            <Pane id="timePane" layoutX="301.0" layoutY="43.0" prefHeight="48.0" prefWidth="183.0">
+               <children>
+                  <Label fx:id="timeLabel" alignment="CENTER" layoutY="-2.0" prefHeight="48.0" prefWidth="183.0" text="00:00">
+                     <font>
+                        <Font name="Andalus" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fitHeight="94.0" fitWidth="191.0" layoutX="31.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@title.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="677.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="28.0">
+               <image>
+                  <Image url="@LogOut.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="dataLabel" text="Label">
-         <GridPane.margin>
-            <Insets bottom="20.0" left="60.0" right="20.0" top="20.0" />
-         </GridPane.margin>
-      </Label>
+      <Pane id="mainPane" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="dataLabel" layoutX="85.0" layoutY="86.0" prefHeight="16.0" prefWidth="31.0" text="User" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="100.0" prefHeight="15.0" prefWidth="31.0" text="Type" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="65.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@user.png" />
+               </image></ImageView>
+         </children>
+      </Pane>
    </children>
 </GridPane>

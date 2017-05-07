@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import com.ivisoft.salon.QQ_Project;
+import com.ivisoft.salon.Salon;
 import com.ivisoft.salon.utils.JavaFXUtil;
 
 import javafx.event.ActionEvent;
@@ -46,11 +46,11 @@ public class LoginController implements Initializable {
     @FXML
     private void loginAction(ActionEvent event) {
         
-        QQ_Project.primaryStage.close();
+        Salon.stage.close();
         
         //            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com/ivisoft/salon/gui/main.fxml"), null, new JavaFXBuilderFactory()));
-                    QQ_Project.primaryStage.setScene(QQ_Project.mainScene);
-                    QQ_Project.primaryStage.show();
+                    Salon.stage.setScene(Salon.mainScene);
+                    Salon.stage.show();
     }
 
     @FXML
