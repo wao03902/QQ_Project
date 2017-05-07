@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -15,12 +16,14 @@
 
 <Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="380.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
    <children>
-      <Pane id="topPane" prefHeight="110.0" prefWidth="381.0" />
-      <Label layoutX="95.0" layoutY="26.0" text="Salon" textFill="WHITE">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Label>
+      <Pane id="topPane" prefHeight="110.0" prefWidth="381.0">
+         <children>
+            <ImageView fitHeight="137.0" fitWidth="236.0" layoutX="28.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@title.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
       <Line endX="380.0" endY="110.0" startX="1.0" startY="110.0" stroke="WHITE" />
       <Pane id="mainPane" layoutY="111.0" prefHeight="370.0" prefWidth="381.0">
          <children>

@@ -58,10 +58,6 @@
       </AnchorPane>
       <AnchorPane id="topPane" prefHeight="43.0" prefWidth="723.0" GridPane.columnIndex="1">
          <children>
-            <Button id="LogoutButton" fx:id="logoutButton" alignment="BOTTOM_CENTER" layoutX="659.0" layoutY="19.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="81.0" prefWidth="81.0" text="Log Out" textFill="WHITE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" GridPane.columnIndex="1">
-               <font>
-                  <Font name="Arial" size="16.0" />
-               </font></Button>
             <Pane id="timePane" layoutX="301.0" layoutY="43.0" prefHeight="48.0" prefWidth="183.0">
                <children>
                   <Label fx:id="timeLabel" alignment="CENTER" layoutY="-2.0" prefHeight="48.0" prefWidth="183.0" text="00:00">
@@ -76,11 +72,23 @@
                   <Image url="@title.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="677.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="28.0">
-               <image>
-                  <Image url="@LogOut.png" />
-               </image>
-            </ImageView>
+            <Button id="LogoutButton" fx:id="logoutButton" alignment="TOP_CENTER" layoutX="650.0" layoutY="28.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="81.0" prefWidth="81.0" textFill="WHITE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@LogOut.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="666.0" layoutY="67.0" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Pane id="mainPane" prefHeight="200.0" prefWidth="200.0">

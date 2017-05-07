@@ -17,12 +17,18 @@
      -fx-font-weight: bold;
      -fx-text-fill: white;
  }
- #okButton, #editButton:hover{
-    -fx-background-color:#67DEF3;
- }
- #okButton, #editButton:pressed{
+ #okButton:hover{
+      -fx-background-color:#67DEF3;
+   }
+   #editButton:hover{
+       -fx-background-color:#67DEF3;
+    }
+ #okButton:pressed{
      -fx-background-color:#49C0D5;
   }
+  #editButton:pressed{
+       -fx-background-color:#49C0D5;
+    }
  #cancelButton{
      -fx-background-color: #FFB754;
      -fx-font-size: 14px;
@@ -30,7 +36,7 @@
      -fx-text-fill: white;
  }
   #cancelButton:hover{
-      -fx-background-color: #FFDD7A;
+      -fx-background-color: #FFC05D;
   }
   #cancelButton:pressed{
     -fx-background-color: #EBA340;
@@ -42,7 +48,7 @@
       -fx-text-fill: white;
   }
   #addButton:hover{
-        -fx-background-color: #ADEF7F;
+        -fx-background-color: #A1E373;
   }
   #addButton:pressed{
    -fx-background-color: #84C656;

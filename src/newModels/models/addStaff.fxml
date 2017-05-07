@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: #3A3A3A;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StaffController">
+<Pane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="450.0" style="-fx-background-color: #3A3A3A;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StaffController">
    <children>
       <VBox layoutX="181.0" layoutY="72.0">
          <children>
@@ -64,9 +64,8 @@
             </HBox>
          </children>
       </VBox>
-      <Button id="okButton" fx:id="saveButton" layoutX="15.0" layoutY="340.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="30.0" prefWidth="120.0" text="Сохранить" />
-      <Button id="cancelButton" fx:id="cancelButton" layoutX="315.0" layoutY="340.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="30.0" prefWidth="120.0" text="Отмена" textFill="WHITE" />
-      <TextField fx:id="kakayataHrenField" layoutX="15.0" layoutY="246.0" prefHeight="79.0" prefWidth="420.0" />
+      <Button id="okButton" fx:id="saveButton" layoutX="15.0" layoutY="450.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="30.0" prefWidth="120.0" text="Сохранить" />
+      <Button id="cancelButton" fx:id="cancelButton" layoutX="315.0" layoutY="450.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="30.0" prefWidth="120.0" text="Отмена" textFill="WHITE" />
       <Pane id="topPane" prefHeight="60.0" prefWidth="450.0" stylesheets="@style.css">
          <children>
             <Label layoutX="109.0" layoutY="7.0" prefHeight="47.0" prefWidth="233.0" text="Новый Сотрудник" textFill="WHITE">
@@ -86,5 +85,9 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <ListView fx:id="allServicesList" layoutX="15.0" layoutY="250.0" prefHeight="178.0" prefWidth="150.0" />
+      <ListView fx:id="masterServicesList" layoutX="285.0" layoutY="250.0" prefHeight="178.0" prefWidth="150.0" />
+      <Button id="addButton" fx:id="addToMasterButton" layoutX="210.0" layoutY="280.0" mnemonicParsing="false" onAction="#addToMasterAction" text="&gt;" />
+      <Button id="deleteButton" fx:id="deleteFromMasterButton" layoutX="210.0" layoutY="360.0" mnemonicParsing="false" onAction="#deleteFromMasterAction" text="&lt;" />
    </children>
 </Pane>
