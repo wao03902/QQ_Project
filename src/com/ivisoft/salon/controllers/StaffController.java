@@ -4,7 +4,11 @@ import static com.ivisoft.salon.utils.JavaFXUtil.createScene;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
+
+import org.controlsfx.dialog.ExceptionDialog;
 
 import com.ivisoft.salon.Salon;
 import com.ivisoft.salon.dao.MasterDao;
@@ -15,7 +19,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -95,7 +102,7 @@ public class StaffController implements Initializable {
     
     @FXML
     private void statusAction(ActionEvent event) {
-
+        
     }
     
     private static ObservableList<Master> masterList = null;
@@ -115,22 +122,62 @@ public class StaffController implements Initializable {
     
     @FXML
     private void editAction(ActionEvent event) {
+        if (mainTable.getSelectionModel().getSelectedItem() == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Ошибка");
+            alert.setHeaderText("Извините, произошла ошибка");
+            alert.setContentText("Вначале выберите мастера, которого хотите изменить!");
+            alert.showAndWait();
+            return;
+        }
+        
         AddOrEditStaffController.isEdition = true;
         AddOrEditStaffController.master = mainTable.getSelectionModel().getSelectedItem();
-        Stage stage = new Stage();
-        stage.setScene(createScene(this, "addStaff"));
-        stage.setResizable(false);
-        stage.initOwner(Salon.stage);
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.setTitle("Изменяем сотрудника");
-        stage.show();
+        
+        Alert al = new Alert(AlertType.CONFIRMATION);
+        al.setTitle("Изменение сотрудника");
+        al.setHeaderText("Хотите внести изменения?");
+        al.setContentText("Вы уверены, что хотите внести изменения сотруднику " + AddOrEditStaffController.master.getName() + "?");
+        Optional<ButtonType> result = al.showAndWait();
+        if (result.get() == ButtonType.OK){
+            al.close();
+            Stage stage = new Stage();
+            stage.setScene(createScene(this, "addStaff"));
+            stage.setResizable(false);
+            stage.initOwner(Salon.stage);
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.setTitle("Изменяем сотрудника");
+            stage.show();
+        } else {
+            al.close();
+        }
     }
     
     @FXML
     private void deleteAction(ActionEvent event) {
+        if (mainTable.getSelectionModel().getSelectedItem() == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Ошибка");
+            alert.setHeaderText("Извините, произошла ошибка");
+            alert.setContentText("Вначале выберите мастера, которого хотите удалить!");
+            alert.showAndWait();
+            return;
+        } 
+        
         Master selectedMaster = mainTable.getSelectionModel().getSelectedItem();
-        MasterDao.deleteMaster(selectedMaster);
-        refreshTable();
+        
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Удаление сотрудника");
+        alert.setHeaderText("Хотите удалить сотрудника?");
+        alert.setContentText("Вы уверены, что хотите удалить сотрудника " + selectedMaster.getName() + "?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            MasterDao.deleteMaster(selectedMaster);
+            refreshTable();
+        } else {
+            alert.close();
+        }
+        
     }
     
     @FXML

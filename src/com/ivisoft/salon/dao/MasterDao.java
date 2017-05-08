@@ -120,7 +120,7 @@ public class MasterDao {
             pst1.setString(3, master.getExtraPhone());
             pst1.setString(4, master.getEmail());
             pst1.setInt(5, master.getStatus());
-            pst1.setBinaryStream(6, fileInputStream, length); 
+            pst1.setBinaryStream(6, fileInputStream, length);
             
             pst1.executeUpdate();
             
@@ -302,11 +302,10 @@ public class MasterDao {
         master.setStatus(rs.getInt("master_status"));
         master.setCreateDate(rs.getTimestamp("master_createdate").toLocalDateTime());
         
-        Blob file = rs.getBlob("master_photo");
-        if (file == null) 
+        InputStream x = rs.getBinaryStream("master_photo");
+        if (x == null) 
             return master;
         
-        InputStream x = file.getBinaryStream();
         int size = x.available();
         byte b[] = new byte[size];
         x.read(b);

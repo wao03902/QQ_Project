@@ -2,8 +2,15 @@ package com.ivisoft.salon;
 
 import static com.ivisoft.salon.utils.JavaFXUtil.createScene;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import com.ivisoft.salon.utils.DBUtil;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class Salon extends Application {
@@ -15,7 +22,17 @@ public class Salon extends Application {
     public static Scene clientsScene;
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws ClassNotFoundException, SQLException {
+        Connection test = DBUtil.getConnection();
+        if (test == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Ошибка");
+            alert.setHeaderText("Не удалось подключится к базе данных");
+            alert.setContentText("Проверьте ваши настройки базы данных и повторите попытку!");
+            alert.showAndWait();
+            System.exit(0);
+        }
+        test.close();
         
         mainScene = createScene(this, "main");
         staffScene = createScene(this, "staff");

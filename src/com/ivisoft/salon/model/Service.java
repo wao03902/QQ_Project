@@ -19,6 +19,7 @@ public class Service {
     private StringProperty description = new SimpleStringProperty();
     private IntegerProperty status = new SimpleIntegerProperty();
     private ObjectProperty<LocalDateTime> createDate = new SimpleObjectProperty<>();
+    int a;
     
     public Integer getId() {
         return id.get();
@@ -88,4 +89,64 @@ public class Service {
     public String toString() {
         return name.get();
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + a;
+        result = prime * result + ((createDate.get() == null) ? 0 : createDate.hashCode());
+        result = prime * result + ((description.get() == null) ? 0 : description.hashCode());
+        result = prime * result + duration.get();
+        result = prime * result + id.get();
+        result = prime * result + ((name.get() == null) ? 0 : name.hashCode());
+        result = prime * result + price.get();
+        result = prime * result + status.get();
+        result = prime * result + ((type.get() == null) ? 0 : type.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Service other = (Service) obj;
+        if (a != other.a)
+            return false;
+        if (createDate.get() == null) {
+            if (other.createDate.get() != null)
+                return false;
+        } else if (!createDate.get().equals(other.createDate.get()))
+            return false;
+        if (description.get() == null) {
+            if (other.description.get() != null)
+                return false;
+        } else if (!description.get().equals(other.description.get()))
+            return false;
+        if (duration.get() != other.duration.get())
+            return false;
+        if (id.get() != other.id.get())
+                return false;
+        if (name.get() == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.get().equals(other.name.get()))
+            return false;
+        if (price.get() != other.price.get())
+                return false;
+        if (status.get() != other.status.get()) 
+                return false;
+        if (type == null) {
+            if (other.type != null)
+                return false;
+        } else if (!type.get().equals(other.type.get()))
+            return false;
+        return true;
+    }
+    
+
 }

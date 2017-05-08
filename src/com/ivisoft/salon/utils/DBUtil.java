@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 public class DBUtil {
     
-    private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/qqdb?autoReconnect=true&useSSL=false";
-    private static final String USER = "qq";
-    private static final String PASSWORD = "qqqq";
+    private static final String JDBC_DRIVER = "org.postgresql.Driver";
+    private static final String URL = "jdbc:postgresql://localhost/qqdb";
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "7309";
     
     public Connection connection;
     
