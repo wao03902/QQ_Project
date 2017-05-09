@@ -82,6 +82,26 @@ public class ServiceDao {
         return services;
     }
     
+    public static List<Service> getServicesByTypeId(int id) {
+        
+        List<Service> services = new ArrayList<>();
+        
+        String query = "SELECT * FROM qq_services WHERE id_service_type = " + id;
+        
+        try (Connection conn = DBUtil.getConnection();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query)) {
+            
+            while (rs.next()) {
+                services.add(getServiceFromResultSet(rs));
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return services;
+    }
+    
     public static void createService(Service service) {
         
         String query = "INSERT INTO qq_services(service_name, service_price, service_duration, id_service_type, service_description, service_status) "
@@ -97,7 +117,7 @@ public class ServiceDao {
             pst.setString(5, service.getDescription());
             pst.setInt(6, service.getStatus());
             
-            pst.executeUpdate(query);
+            pst.executeUpdate();
             
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

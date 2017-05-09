@@ -125,15 +125,6 @@ public class StaffController implements Initializable {
     
     @FXML
     private void editAction(ActionEvent event) {
-        if (mainTable.getSelectionModel().getSelectedItem() == null) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Ошибка");
-            alert.setHeaderText("Извините, произошла ошибка");
-            alert.setContentText("Вначале выберите мастера, которого хотите изменить!");
-            alert.showAndWait();
-            return;
-        }
-        
         AddOrEditStaffController.isEdition = true;
         AddOrEditStaffController.master = mainTable.getSelectionModel().getSelectedItem();
         
