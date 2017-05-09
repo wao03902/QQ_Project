@@ -19,7 +19,6 @@ public class Service {
     private StringProperty description = new SimpleStringProperty();
     private IntegerProperty status = new SimpleIntegerProperty();
     private ObjectProperty<LocalDateTime> createDate = new SimpleObjectProperty<>();
-    int a;
     
     public Integer getId() {
         return id.get();
@@ -94,7 +93,6 @@ public class Service {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + a;
         result = prime * result + ((createDate.get() == null) ? 0 : createDate.hashCode());
         result = prime * result + ((description.get() == null) ? 0 : description.hashCode());
         result = prime * result + duration.get();
@@ -115,8 +113,6 @@ public class Service {
         if (getClass() != obj.getClass())
             return false;
         Service other = (Service) obj;
-        if (a != other.a)
-            return false;
         if (createDate.get() == null) {
             if (other.createDate.get() != null)
                 return false;

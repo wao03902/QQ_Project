@@ -2,18 +2,25 @@ package com.ivisoft.salon.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import com.ivisoft.salon.Salon;
 
+import eu.hansolo.tilesfx.Tile;
+import eu.hansolo.tilesfx.TileBuilder;
+import eu.hansolo.tilesfx.Tile.SkinType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class MainController implements Initializable {
     
@@ -55,7 +62,17 @@ public class MainController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        Tile tile = TileBuilder.create()
+                .skinType(SkinType.CLOCK)
+                .prefSize(183, 48)
+                .backgroundColor(Color.WHITE)
+                .foregroundBaseColor(Color.BLACK)
+                .dateVisible(false)
+                .locale(Locale.US)
+                .running(true)
+                .build();
+        timeLabel.setAlignment(Pos.CENTER);
+        timeLabel.setGraphic(tile);
     }
     
     @FXML
@@ -88,6 +105,16 @@ public class MainController implements Initializable {
     
     @FXML
     private void logoutAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void fullScreenAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void addVisit(ActionEvent event) {
         
     }
 }

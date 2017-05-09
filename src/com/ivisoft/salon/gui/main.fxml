@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="940.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivisoft.salon.controllers.MainController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="940.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivisoft.salon.controllers.MainController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="800.0" />
@@ -44,13 +43,26 @@
       </VBox>
       <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <DatePicker layoutX="552.0" layoutY="40.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0" />
-            <TableView fx:id="mainTable" layoutX="32.0" layoutY="31.0" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <DatePicker fx:id="dateField" layoutX="552.0" layoutY="40.0" showWeekNumbers="true" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0" />
+            <TableView fx:id="mainTable" layoutX="32.0" layoutY="31.0" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="460.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columns>
-                <TableColumn prefWidth="61.0" text="Время" />
-                <TableColumn prefWidth="398.0" text="Мастер" />
+                <TableColumn prefWidth="60.0" text="Время" />
+                <TableColumn prefWidth="100.0" text="Мастер_1" />
+                  <TableColumn prefWidth="100.0" text="Мастер_2" />
+                  <TableColumn prefWidth="100.0" text="Мастер_3" />
+                  <TableColumn prefWidth="100.0" text="Мастер_4" />
               </columns>
             </TableView>
+            <Button layoutX="694.0" layoutY="386.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#fullScreenAction" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="3.0">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/full-screen.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="addButton" layoutX="60.0" layoutY="385.0" mnemonicParsing="false" onAction="#addVisit" prefWidth="100.0" text="Добавить" AnchorPane.bottomAnchor="10.0" />
          </children>
          <GridPane.margin>
             <Insets />
@@ -58,10 +70,6 @@
       </AnchorPane>
       <AnchorPane id="topPane" prefHeight="43.0" prefWidth="723.0" GridPane.columnIndex="1">
          <children>
-            <Button id="LogoutButton" fx:id="logoutButton" alignment="BOTTOM_CENTER" layoutX="659.0" layoutY="19.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="81.0" prefWidth="81.0" text="Log Out" textFill="WHITE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" GridPane.columnIndex="1">
-               <font>
-                  <Font name="Arial" size="16.0" />
-               </font></Button>
             <Pane id="timePane" layoutX="301.0" layoutY="43.0" prefHeight="48.0" prefWidth="183.0">
                <children>
                   <Label fx:id="timeLabel" alignment="CENTER" layoutY="-2.0" prefHeight="48.0" prefWidth="183.0" text="00:00">
@@ -73,14 +81,26 @@
             </Pane>
             <ImageView fitHeight="94.0" fitWidth="191.0" layoutX="31.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@title.png" />
+                  <Image url="@images/title.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="677.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="28.0">
-               <image>
-                  <Image url="@LogOut.png" />
-               </image>
-            </ImageView>
+            <Button id="LogoutButton" fx:id="logoutButton" alignment="TOP_CENTER" layoutX="650.0" layoutY="28.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="50.0" prefWidth="60.0" textFill="WHITE" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/LogOut.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="666.0" layoutY="67.0" text="Log Out" textFill="WHITE" AnchorPane.rightAnchor="17.0">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Pane id="mainPane" prefHeight="200.0" prefWidth="200.0">
@@ -97,7 +117,7 @@
             </Label>
             <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="65.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@user.png" />
+                  <Image url="@images/user.png" />
                </image></ImageView>
          </children>
       </Pane>

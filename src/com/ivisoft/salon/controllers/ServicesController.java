@@ -7,7 +7,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.ivisoft.salon.Salon;
+import com.ivisoft.salon.dao.ServiceDao;
+import com.ivisoft.salon.model.Service;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ServicesController implements Initializable {
@@ -39,7 +43,7 @@ public class ServicesController implements Initializable {
     private Button statusButton;
     
     @FXML
-    private TableView mainTable;
+    private TableView<Service> mainTable;
     
     @FXML
     private Button addButton;
@@ -61,7 +65,7 @@ public class ServicesController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-
+        mainTable.setItems(FXCollections.observableList(ServiceDao.getAllServices()));
     }
     
     @FXML
@@ -94,12 +98,13 @@ public class ServicesController implements Initializable {
     
     @FXML
     private void addAction(ActionEvent event) {
-//        Stage stage = new Stage();
-//        Scene scene = createScene(this, "addStaff");
-//        stage.setScene(scene);
-//        stage.setTitle("Новый мастер");
-//        stage.show();
-//        stage.setAlwaysOnTop(true);
+        Stage stage = new Stage();
+        stage.setScene(createScene(this, "addServices"));
+        stage.setResizable(false);
+        stage.initOwner(Salon.stage);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setTitle("Новая услуга");
+        stage.show();
     }
     
     @FXML
@@ -122,4 +127,8 @@ public class ServicesController implements Initializable {
         
     }
     
+    @FXML
+    private void fullScreenAction(ActionEvent event) {
+        
+    }
 }
