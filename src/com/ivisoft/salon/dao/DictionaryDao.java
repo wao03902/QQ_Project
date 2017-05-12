@@ -1,6 +1,7 @@
 package com.ivisoft.salon.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,7 +15,7 @@ public class DictionaryDao {
     
     public static Dictionary getDictById(int id) {
         
-        Dictionary dict = new Dictionary();
+        Dictionary dict = null;
         
         String query = "SELECT * FROM qq_dictionary WHERE id = " + id;
         
@@ -23,7 +24,7 @@ public class DictionaryDao {
                 ResultSet rs = st.executeQuery(query)) {
             
             if (rs.next()) {
-                getDictFromResultSet(rs);
+                dict = getDictFromResultSet(rs);
             }
             
         } catch (ClassNotFoundException e) {
@@ -64,5 +65,22 @@ public class DictionaryDao {
         dict.setCreateDate(rs.getTimestamp("createdate").toLocalDateTime());
         
         return dict;
+    }
+    
+    public static void createDictionary(Dictionary dict) {
+        String query = "INSERT INTO qq_dictionary(caption, type, status) VALUES (?, ?, ?)";
+        
+        try (Connection conn = DBUtil.getConnection();
+            PreparedStatement pst = conn.prepareStatement(query)) {
+            
+            pst.setString(1, dict.getCaption());
+            pst.setString(2, dict.getType());
+            pst.setInt(3, dict.getStatus());
+            
+            pst.executeUpdate();
+            
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

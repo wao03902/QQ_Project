@@ -87,7 +87,6 @@ public class ClientsController implements Initializable {
                 TableCell<Client, Integer> cell = new TableCell<Client, Integer>() {
                     @Override
                     public void updateItem(Integer item, boolean empty) {
-                        System.out.println("qwerty");
                         if (item != null) {
                             HBox box= new HBox();
                             box.setAlignment(Pos.CENTER);

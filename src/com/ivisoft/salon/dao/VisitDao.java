@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,6 +96,21 @@ public class VisitDao {
         return visits;
     }
     
+    public static List<Visit> getVisitsByDate(LocalDate date) {
+        
+        List<Visit> allVisits = getAllVisits();
+        List<Visit> visits = new ArrayList<>();
+        for (Visit visit : allVisits) {
+            if (visit.getDateAndTime().getYear() == date.getYear() &&
+                    visit.getDateAndTime().getMonthValue() == date.getMonthValue() &&
+                    visit.getDateAndTime().getDayOfMonth() == date.getDayOfMonth()) {
+                visits.add(visit);
+            }
+        }
+        
+        return visits;
+    }
+    
     public static void createVisit(Visit visit) {
         String query = "INSERT INTO qq_visits(id_client, id_service, visit_price, visit_duration, "
                 + "visit_discount, visit_total_price, visit_date, visit_status) "
@@ -166,7 +182,7 @@ public class VisitDao {
             if (rs.next()) {
                 visitsAmount = rs.getInt(1);
             }
-                
+
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -185,6 +201,7 @@ public class VisitDao {
         visit.setTotalPrice(rs.getInt("visit_total_price"));
         visit.setClient(ClientDao.getClientById(rs.getInt("id_client")));
         visit.setService(ServiceDao.getServiceById(rs.getInt("id_service")));
+        visit.setMaster(MasterDao.getMasterById(rs.getInt("id_master")));
         
         return visit;
     }

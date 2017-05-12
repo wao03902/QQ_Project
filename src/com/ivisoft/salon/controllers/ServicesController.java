@@ -10,10 +10,8 @@ import java.util.ResourceBundle;
 
 import com.ivisoft.salon.Salon;
 import com.ivisoft.salon.dao.DictionaryDao;
-import com.ivisoft.salon.dao.MasterDao;
 import com.ivisoft.salon.dao.ServiceDao;
 import com.ivisoft.salon.model.Dictionary;
-import com.ivisoft.salon.model.Master;
 import com.ivisoft.salon.model.Service;
 
 import javafx.beans.binding.Bindings;
@@ -24,6 +22,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
@@ -32,7 +31,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -83,19 +81,29 @@ public class ServicesController implements Initializable {
     
     @FXML
     private Label dataLabel;
+    
+    private static List<Dictionary> sectionList;
+    
+    public static void refreshSectionBox(List<Dictionary> dictList) {
+        sectionList.removeAll(sectionList);
+        sectionList.addAll(dictList);
+    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        
         serviceList = FXCollections.observableList(ServiceDao.getAllServices());
         mainTable.setItems(serviceList);
+
+        sectionList = DictionaryDao.getDictsByType("service_type");
+        selectionBox.setItems(FXCollections.observableList(sectionList));
         
-        selectionBox.setItems(FXCollections.observableList(DictionaryDao.getDictsByType("service_type")));
         selectionBox.getSelectionModel().selectedItemProperty().addListener((obj, oldSelect, newSelect) -> {
             refreshTable(ServiceDao.getServicesByTypeId(newSelect.getId()));
         });
         
         ContextMenu contextMenu = new ContextMenu();
-        MenuItem item1 = new MenuItem("Редактировать");
+        MenuItem item1 = new MenuItem("РР·РјРµРЅРёС‚СЊ");
         item1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -103,7 +111,7 @@ public class ServicesController implements Initializable {
                 mainTable.getSelectionModel().clearSelection();
             }
         });
-        MenuItem item2 = new MenuItem("Удалить");
+        MenuItem item2 = new MenuItem("РЈРґР°Р»РёС‚СЊ");
         item2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -134,19 +142,19 @@ public class ServicesController implements Initializable {
     
     @FXML
     private void servicesAction(ActionEvent event) {
-        Salon.stage.setTitle("Услуги");
+        Salon.stage.setTitle("РЈСЃР»СѓРіРё");
         Salon.stage.setScene(Salon.servicesScene);
     }
     
     @FXML
     private void clientsAction(ActionEvent event) throws Exception {
-        Salon.stage.setTitle("Клиенты");
+        Salon.stage.setTitle("РљР»РёРµРЅС‚С‹");
         Salon.stage.setScene(Salon.clientsScene);
     }
     
     @FXML
     private void staffAction(ActionEvent event) throws IOException {
-        Salon.stage.setTitle("Персонал");
+        Salon.stage.setTitle("РџРµСЂСЃРѕРЅР°Р»");
         Salon.stage.setScene(Salon.staffScene);
     }
     
@@ -164,19 +172,19 @@ public class ServicesController implements Initializable {
         stage.setResizable(false);
         stage.initOwner(Salon.stage);
         stage.initModality(Modality.WINDOW_MODAL);
-        stage.setTitle("Новая услуга");
+        stage.setTitle("РќРѕРІР°СЏ СѓСЃР»СѓРіР°");
         stage.show();
     }
-    
+
     @FXML
     private void editAction(ActionEvent event) {
         AddOrEditServicesController.isEdition = true;
         AddOrEditServicesController.service = mainTable.getSelectionModel().getSelectedItem();
         
         Alert al = new Alert(AlertType.CONFIRMATION);
-        al.setTitle("Изменение услуги");
-        al.setHeaderText("Хотите внести изменения?");
-        al.setContentText("Вы уверены, что хотите изменить информацию об услуге " + AddOrEditServicesController.service.getName() + "?");
+        al.setTitle("РР·РјРµРЅРёС‚СЊ СѓСЃР»СѓРіСѓ");
+        al.setHeaderText("РР·РјРµРЅСЏРµРј СѓСЃР»СѓРіСѓ?");
+        al.setContentText("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СѓСЃР»СѓРіСѓ " + AddOrEditServicesController.service.getName() + "?");
         Optional<ButtonType> result = al.showAndWait();
         if (result.get() == ButtonType.OK){
             al.close();
@@ -185,7 +193,7 @@ public class ServicesController implements Initializable {
             stage.setResizable(false);
             stage.initOwner(Salon.stage);
             stage.initModality(Modality.WINDOW_MODAL);
-            stage.setTitle("Изменяем услугу");
+            stage.setTitle("РњРµРЅСЏРµРј СѓСЃР»СѓРіСѓ");
             stage.show();
         } else {
             al.close();
@@ -197,9 +205,9 @@ public class ServicesController implements Initializable {
         Service selectedService = mainTable.getSelectionModel().getSelectedItem();
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Удаление услуги");
-        alert.setHeaderText("Хотите удалить услугу?");
-        alert.setContentText("Вы уверены, что хотите удалить услугу " + selectedService.getName() + "?");
+        alert.setTitle("РЈРґР°Р»РµРЅРёРµ СѓСЃР»СѓРіРё");
+        alert.setHeaderText("РҐРѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СѓСЃР»СѓРіСѓ?");
+        alert.setContentText("Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СѓСЃР»СѓРіСѓ " + selectedService.getName() + "?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             ServiceDao.deleteService(selectedService);
@@ -216,7 +224,13 @@ public class ServicesController implements Initializable {
     
     @FXML
     private void addSelectionAction(ActionEvent event) {
-        
+        Stage stage = new Stage();
+        stage.setScene(createScene(this, "newSection"));
+        stage.setResizable(false);
+        stage.initOwner(Salon.stage);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setTitle("РќРѕРІС‹Р№ СЂР°Р·РґРµР»");
+        stage.show();
     }
     
     @FXML

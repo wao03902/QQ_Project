@@ -87,19 +87,19 @@ public class StaffController implements Initializable {
     
     @FXML
     private void servicesAction(ActionEvent event) {
-        Salon.stage.setTitle("Услуги");
+        Salon.stage.setTitle("РЈСЃР»СѓРіРё");
         Salon.stage.setScene(Salon.servicesScene);
     }
     
     @FXML
     private void clientsAction(ActionEvent event) throws Exception {
-        Salon.stage.setTitle("Клиенты");
+        Salon.stage.setTitle("РљР»РёРµРЅС‚С‹");
         Salon.stage.setScene(Salon.clientsScene);
     }
     
     @FXML
     private void staffAction(ActionEvent event) throws IOException {
-        Salon.stage.setTitle("Персонал");
+        Salon.stage.setTitle("РџРµСЂСЃРѕРЅР°Р»");
         Salon.stage.setScene(Salon.staffScene);
     }
     
@@ -119,7 +119,7 @@ public class StaffController implements Initializable {
         stage.setResizable(false);
         stage.initOwner(Salon.stage);
         stage.initModality(Modality.WINDOW_MODAL);
-        stage.setTitle("Новый сотрудник");
+        stage.setTitle("Р”РѕР±Р°РІР»СЏРµРј СЃРѕС‚СЂСѓРґРЅРёРєР°");
         stage.show();
     }
     
@@ -129,9 +129,9 @@ public class StaffController implements Initializable {
         AddOrEditStaffController.master = mainTable.getSelectionModel().getSelectedItem();
         
         Alert al = new Alert(AlertType.CONFIRMATION);
-        al.setTitle("Изменение сотрудника");
-        al.setHeaderText("Хотите внести изменения?");
-        al.setContentText("Вы уверены, что хотите внести изменения сотруднику " + AddOrEditStaffController.master.getName() + "?");
+        al.setTitle("РР·РјРµРЅРµРЅРёРµ СЃРѕС‚СЂСѓРґРЅРёРєР°");
+        al.setHeaderText("РР·РјРµРЅСЏРµРј СЃРѕС‚СЂСѓРґРЅРёРєР°?");
+        al.setContentText("Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ РёР·РјРµРЅРёС‚СЊ РґР°РЅС‹Рµ Рѕ СЃРѕС‚СЂСѓРґРЅРёРєРµ " + AddOrEditStaffController.master.getName() + "?");
         Optional<ButtonType> result = al.showAndWait();
         if (result.get() == ButtonType.OK){
             al.close();
@@ -140,7 +140,7 @@ public class StaffController implements Initializable {
             stage.setResizable(false);
             stage.initOwner(Salon.stage);
             stage.initModality(Modality.WINDOW_MODAL);
-            stage.setTitle("Изменяем сотрудника");
+            stage.setTitle("РЎРѕС‚СЂСѓРґРЅРёРє РґРѕР±Р°РІР»РµРЅ");
             stage.show();
         } else {
             al.close();
@@ -149,21 +149,12 @@ public class StaffController implements Initializable {
     
     @FXML
     private void deleteAction(ActionEvent event) {
-        if (mainTable.getSelectionModel().getSelectedItem() == null) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Ошибка");
-            alert.setHeaderText("Извините, произошла ошибка");
-            alert.setContentText("Вначале выберите мастера, которого хотите удалить!");
-            alert.showAndWait();
-            return;
-        } 
-        
         Master selectedMaster = mainTable.getSelectionModel().getSelectedItem();
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Удаление сотрудника");
-        alert.setHeaderText("Хотите удалить сотрудника?");
-        alert.setContentText("Вы уверены, что хотите удалить сотрудника " + selectedMaster.getName() + "?");
+        alert.setTitle("РЈРґР°Р»РµРЅРёРµ СЃРѕС‚СЂСѓРґРЅРёРєР°");
+        alert.setHeaderText("РЈРґР°Р»СЏРµРј СЃРѕС‚СЂСѓРґРЅРёРєР°?");
+        alert.setContentText("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СЃРѕС‚СЂСѓРґРЅРёРєР° " + selectedMaster.getName() + "?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             MasterDao.deleteMaster(selectedMaster);
@@ -185,7 +176,7 @@ public class StaffController implements Initializable {
         mainTable.setItems(masterList);
         
         ContextMenu contextMenu = new ContextMenu();
-        MenuItem item1 = new MenuItem("Редактировать");
+        MenuItem item1 = new MenuItem("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         item1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -193,7 +184,7 @@ public class StaffController implements Initializable {
                 mainTable.getSelectionModel().clearSelection();
             }
         });
-        MenuItem item2 = new MenuItem("Удалить");
+        MenuItem item2 = new MenuItem("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         item2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

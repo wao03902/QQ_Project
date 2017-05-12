@@ -93,14 +93,14 @@ public class Service {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((createDate.get() == null) ? 0 : createDate.hashCode());
-        result = prime * result + ((description.get() == null) ? 0 : description.hashCode());
+        result = prime * result + ((createDate.get() == null) ? 0 : createDate.get().hashCode());
+        result = prime * result + ((description.get() == null) ? 0 : description.get().hashCode());
         result = prime * result + duration.get();
         result = prime * result + id.get();
-        result = prime * result + ((name.get() == null) ? 0 : name.hashCode());
+        result = prime * result + ((name.get() == null) ? 0 : name.get().hashCode());
         result = prime * result + price.get();
         result = prime * result + status.get();
-        result = prime * result + ((type.get() == null) ? 0 : type.hashCode());
+        result = prime * result + ((type.get() == null) ? 0 : type.get().hashCode());
         return result;
     }
 

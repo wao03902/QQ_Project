@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -324,5 +323,22 @@ public class MasterDao {
         master.setPhoto(new File("src\\imageCache\\" + master.getName()));
         
         return master;
+    }
+
+    public static int countMasters() {
+        String query = "SELECT COUNT(*) FROM qq_masters";
+        int mastersAmount = 0;
+        try (Connection conn = DBUtil.getConnection();
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(query)) {
+            
+            if (rs.next()) {
+                mastersAmount = rs.getInt(1);
+            }
+                
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return mastersAmount;
     }
 }

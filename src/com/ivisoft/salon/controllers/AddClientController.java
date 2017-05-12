@@ -56,8 +56,8 @@ public class AddClientController implements Initializable {
         
         ClientDao.createClient(client);
         
-        Node source = (Node) event.getSource(); 
-        Stage stage = (Stage) source.getScene().getWindow(); 
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
         
         ClientsController.refreshTable();

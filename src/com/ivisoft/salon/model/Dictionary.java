@@ -4,16 +4,16 @@ import java.time.LocalDateTime;
 
 public class Dictionary {
 
-    private Integer id;
+    private int id;
     private String caption;
     private String type;
-    private Integer status;
+    private int status;
     private LocalDateTime createDate;
     
-    public Integer getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getCaption() {
@@ -51,8 +51,8 @@ public class Dictionary {
         int result = 1;
         result = prime * result + ((caption == null) ? 0 : caption.hashCode());
         result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((status == null) ? 0 : status.hashCode());
+        result = prime * result + id;
+        result = prime * result + status;
         result = prime * result + ((type == null) ? 0 : type.hashCode());
         return result;
     }
@@ -75,15 +75,9 @@ public class Dictionary {
                 return false;
         } else if (!createDate.equals(other.createDate))
             return false;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
+        if (id != other.id)
             return false;
-        if (status == null) {
-            if (other.status != null)
-                return false;
-        } else if (!status.equals(other.status))
+        if (status != other.status)
             return false;
         if (type == null) {
             if (other.type != null)

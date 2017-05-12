@@ -45,12 +45,9 @@ public class LoginController implements Initializable {
 
     @FXML
     private void loginAction(ActionEvent event) {
-        
         Salon.stage.close();
-        
-        //            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com/ivisoft/salon/gui/main.fxml"), null, new JavaFXBuilderFactory()));
-                    Salon.stage.setScene(Salon.mainScene);
-                    Salon.stage.show();
+        Salon.stage.setScene(Salon.mainScene);
+        Salon.stage.show();
     }
 
     @FXML

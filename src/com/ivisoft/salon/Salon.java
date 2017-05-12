@@ -5,6 +5,7 @@ import static com.ivisoft.salon.utils.JavaFXUtil.createScene;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.ivisoft.salon.dao.ClientDao;
 import com.ivisoft.salon.utils.DBUtil;
 
 import javafx.application.Application;
@@ -23,6 +24,8 @@ public class Salon extends Application {
     
     @Override
     public void start(Stage primaryStage) throws ClassNotFoundException, SQLException {
+        System.out.println(ClientDao.getClientById(1));
+        
         Connection test = DBUtil.getConnection();
         if (test == null) {
             Alert alert = new Alert(AlertType.ERROR);

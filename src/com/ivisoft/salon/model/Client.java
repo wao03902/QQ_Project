@@ -74,4 +74,10 @@ public class Client {
     public void setCreateDate(LocalDateTime createDate) {
         this.createDate.set(createDate);
     }
+
+    @Override
+    public String toString() {
+        return "Client [id=" + id + ", name=" + name + ", sex=" + sex + ", phone=" + phone + ", status=" + status
+                + ", description=" + description + ", createDate=" + createDate + "]";
+    }
 }

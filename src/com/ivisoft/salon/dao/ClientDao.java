@@ -15,7 +15,7 @@ public class ClientDao {
     
     public static Client getClientById(int id) {
         
-        Client client = new Client();
+        Client client = null;
         
         String query = "SELECT * FROM qq_clients WHERE id_client = " + id;
         
@@ -24,7 +24,7 @@ public class ClientDao {
             ResultSet rs = st.executeQuery(query)) {
             
             if (rs.next()) {
-                getClientFromResultSet(rs);
+                client = getClientFromResultSet(rs);
             }
             
         } catch (SQLException | ClassNotFoundException e) {

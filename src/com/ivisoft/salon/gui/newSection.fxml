@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="300.0" style="-fx-background-color: #3A3A3A;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivisoft.salon.controllers.NewSectionController">
+   <children>
+      <Button id="okButton" defaultButton="true" layoutX="15.0" layoutY="100.0" mnemonicParsing="false" onAction="#okAction" prefHeight="35.0" prefWidth="115.0" text="Сохранить" />
+      <Button id="cancelButton" cancelButton="true" layoutX="170.0" layoutY="100.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="35.0" prefWidth="115.0" text="Отмена" />
+      <Label layoutX="89.0" layoutY="14.0" prefHeight="24.0" prefWidth="123.0" text="Новый раздел" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="newSectionField" layoutX="50.0" layoutY="53.0" prefHeight="25.0" prefWidth="200.0" />
+   </children>
+</Pane>

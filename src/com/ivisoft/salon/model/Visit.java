@@ -12,6 +12,7 @@ public class Visit {
     private IntegerProperty id = new SimpleIntegerProperty();
     private ObjectProperty<Client> client = new SimpleObjectProperty<>();
     private ObjectProperty<Service> service = new SimpleObjectProperty<>();
+    private ObjectProperty<Master> master = new SimpleObjectProperty<>();
     private IntegerProperty price = new SimpleIntegerProperty();
     private IntegerProperty duration = new SimpleIntegerProperty();
     private IntegerProperty discount = new SimpleIntegerProperty();
@@ -89,5 +90,81 @@ public class Visit {
 
     public void setStatus(Integer status) {
         this.status.set(status);
+    }
+
+    public Master getMaster() {
+        return master.get();
+    }
+
+    public void setMaster(Master master) {
+        this.master.set(master);
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((client.get() == null) ? 0 : client.get().hashCode());
+        result = prime * result + ((dateAndTime.get() == null) ? 0 : dateAndTime.get().hashCode());
+        result = prime * result + discount.get();
+        result = prime * result + duration.get();
+        result = prime * result + id.get();
+        result = prime * result + ((master.get() == null) ? 0 : master.get().hashCode());
+        result = prime * result + price.get();
+        result = prime * result + ((service.get() == null) ? 0 : service.get().hashCode());
+        result = prime * result + status.get();
+        result = prime * result + totalPrice.get();
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Visit other = (Visit) obj;
+        if (client.get() == null) {
+            if (other.client.get() != null)
+                return false;
+        } else if (!client.get().equals(other.client.get()))
+            return false;
+        if (dateAndTime.get() == null) {
+            if (other.dateAndTime.get() != null)
+                return false;
+        } else if (!dateAndTime.get().equals(other.dateAndTime.get()))
+            return false;
+        
+        if (discount.get() != other.discount.get()) {
+                return false;
+        }
+        if (duration.get() != other.duration.get()) {
+            return false;
+        }
+        if (id.get() != other.id.get()) {
+            return false;
+        }
+        if (price.get() != other.price.get()) {
+            return false;
+        }
+        if (status.get() != other.status.get()) {
+            return false;
+        }
+        if (totalPrice.get() != other.totalPrice.get()) {
+            return false;
+        }
+        if (master.get() == null) {
+            if (other.master.get() != null)
+                return false;
+        } else if (!master.get().equals(other.master.get()))
+            return false;
+        if (service.get() == null) {
+            if (other.service.get() != null)
+                return false;
+        } else if (!service.get().equals(other.service.get()))
+            return false;
+        return true;
     }
 }
