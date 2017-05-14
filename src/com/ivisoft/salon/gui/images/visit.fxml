@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="940.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivisoft.salon.controllers.AddVisitController">
   <columnConstraints>
@@ -43,11 +27,11 @@
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="10.0" />
                </VBox.margin></Button>
-            <Button id="mainButton" fx:id="staffButton" mnemonicParsing="false" onAction="#staffAction" prefHeight="60.0" prefWidth="190.0" text="Персонал">
+            <Button id="mainButton" fx:id="clientsButton" mnemonicParsing="false" onAction="#clientsAction" prefHeight="60.0" prefWidth="190.0" text="Клиенты">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="10.0" />
                </VBox.margin></Button>
-            <Button id="mainButton" fx:id="clientsButton" mnemonicParsing="false" onAction="#clientsAction" prefHeight="60.0" prefWidth="190.0" text="Клиенты">
+            <Button id="mainButton" fx:id="staffButton" mnemonicParsing="false" onAction="#staffAction" prefHeight="60.0" prefWidth="190.0" text="Персонал">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="10.0" />
                </VBox.margin></Button>
@@ -61,21 +45,26 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #DBFEF6;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
                <children>
-                  <Label id="visitLabel" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="30.0" prefWidth="110.0" text="Раздел" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0">
+                  <Label id="visitLabel" alignment="CENTER" layoutX="-31.0" layoutY="-3.0" prefHeight="30.0" prefWidth="110.0" text="Раздел" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label id="visitLabel" alignment="CENTER" layoutX="340.0" layoutY="45.0" prefHeight="30.0" prefWidth="110.0" text="Услуга" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="45.0" />
+                  <Label id="visitLabel" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" text="Услуга" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0" />
                   <Label id="visitLabel" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" text="Цена" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                   <Label id="visitLabel2" layoutX="211.0" layoutY="97.0" text="грн." AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="80.0" />
-                  <Label id="visitLabel2" layoutX="260.0" layoutY="152.0" text="грн." AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="150.0" />
-                  <Label id="visitLabel" alignment="CENTER" layoutX="340.0" layoutY="152.0" prefHeight="30.0" prefWidth="110.0" text="Скидка" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="150.0" />
+                  <Label id="visitLabel" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" text="Дополнительно" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="115.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label id="visitLabel2" layoutX="222.0" layoutY="143.0" text="грн." AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="115.0" />
+                  <Label id="visitLabel" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" text="Скидка" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="150.0" />
                   <Label id="visitLabel" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" text="Примечание" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="185.0" />
                   <Label id="visitLabel" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" text="Итого:" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
                   <Label id="visitLabel2" layoutX="181.0" layoutY="307.0" text="грн." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="260.0" />
-                  <Label id="visitLabel" alignment="CENTER" layoutX="350.0" layoutY="10.0" prefHeight="30.0" prefWidth="110.0" text="Дата" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                  <Label id="visitLabel" alignment="CENTER" layoutX="330.0" layoutY="294.0" prefHeight="30.0" prefWidth="110.0" text="Время" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="10.0" />
+                  <Label id="visitLabel" alignment="CENTER" layoutX="350.0" layoutY="10.0" prefHeight="30.0" prefWidth="110.0" text="Дата" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="10.0" />
+                  <Label id="visitLabel" alignment="CENTER" layoutX="350.0" prefHeight="30.0" prefWidth="110.0" text="Время" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="45.0" />
                   <Label id="visitLabel" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" text="Длительность" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="80.0" />
                   <Label id="visitLabel2" alignment="CENTER" layoutX="600.0" layoutY="80.0" prefHeight="30.0" prefWidth="70.0" text="мин." AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
                      <font>
@@ -83,29 +72,32 @@
                      </font>
                   </Label>
                   <Label id="visitLabel" alignment="CENTER" layoutX="350.0" layoutY="115.0" prefHeight="30.0" prefWidth="110.0" text="Имя" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="115.0" />
-                  <Label id="visitLabel" alignment="CENTER" layoutX="10.0" layoutY="115.0" prefHeight="30.0" prefWidth="110.0" text="Телефон" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="115.0" />
-                  <DatePicker id="selectionButton" layoutX="498.0" layoutY="13.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="10.0" />
-                  <ChoiceBox id="selectionButton" fx:id="timeField" layoutX="513.0" layoutY="57.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                  <ChoiceBox id="selectionButton" fx:id="sectionField" layoutX="180.0" layoutY="45.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="45.0" />
-                  <ChoiceBox id="selectionButton" fx:id="serviceField" layoutX="510.0" layoutY="45.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
+                  <Label id="visitLabel" alignment="CENTER" layoutX="350.0" layoutY="150.0" prefHeight="30.0" prefWidth="110.0" text="Телефон" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="150.0" />
+                  <ChoiceBox id="selectionButton" fx:id="sectionField" layoutX="180.0" layoutY="10.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="10.0" />
+                  <ChoiceBox id="selectionButton" fx:id="serviceField" layoutX="157.0" layoutY="57.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="45.0" />
                   <TextField fx:id="priceField" alignment="CENTER" layoutX="122.0" layoutY="93.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="80.0" />
-                  <TextField fx:id="durationField" alignment="CENTER" layoutX="520.0" layoutY="78.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="80.0" />
-                  <TextField fx:id="baseTelField" alignment="CENTER" editable="false" layoutX="180.0" layoutY="115.0" prefHeight="30.0" prefWidth="40.0" text="+38" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="115.0" />
-                  <TextField fx:id="telField" layoutX="220.0" layoutY="115.0" prefHeight="30.0" prefWidth="110.0" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="115.0" text="Номер телефона" />
-                  <TextField fx:id="nameFiled" layoutX="521.0" layoutY="118.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="115.0" />
-                  <TextField fx:id="additionallyField" alignment="CENTER" layoutX="510.0" layoutY="152.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="150.0" />
-                  <TextField fx:id="discountField" alignment="CENTER" layoutX="510.0" layoutY="150.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="150.0" />
-                  <ChoiceBox id="selectionButton" fx:id="discountTypeField" layoutX="590.0" layoutY="152.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
+                  <ChoiceBox id="selectionButton" fx:id="discountTypeField" layoutX="201.0" layoutY="168.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="150.0" />
                   <TextArea fx:id="noteField" layoutX="156.0" layoutY="210.0" prefHeight="84.0" prefWidth="454.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="185.0" />
+                  <TextField fx:id="discountField" alignment="CENTER" layoutX="130.0" layoutY="175.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="150.0" />
+                  <TextField fx:id="additionallyField" alignment="CENTER" layoutX="119.0" layoutY="139.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="115.0" />
                   <TextField fx:id="totalField" alignment="CENTER" editable="false" layoutX="129.0" layoutY="300.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="180.0" />
-                  <Label id="visitLabel" alignment="CENTER" layoutX="10.0" layoutY="152.0" prefHeight="30.0" prefWidth="110.0" text="Дополнительно" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="150.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <ChoiceBox fx:id="masterField" layoutX="10.0" layoutY="230.0" prefWidth="150.0" />
+                  <ChoiceBox id="selectionButton" fx:id="dateField" layoutX="515.0" layoutY="10.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0" />
+                  <ChoiceBox id="selectionButton" fx:id="timeField" layoutX="513.0" layoutY="57.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
+                  <TextField fx:id="durationField" alignment="CENTER" layoutX="520.0" layoutY="78.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="80.0" />
+                  <TextField fx:id="nameFiled" layoutX="521.0" layoutY="118.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="115.0" />
+                  <TextField fx:id="telField" layoutX="566.0" layoutY="153.0" prefHeight="30.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
+                  <TextField fx:id="baseTelField" alignment="CENTER" editable="false" layoutX="483.0" layoutY="153.0" prefHeight="30.0" prefWidth="40.0" text="+38" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="150.0" />
                </children>
             </AnchorPane>
+            <Button layoutX="694.0" layoutY="386.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#fullScreenAction" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="3.0">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/full-screen.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <Button id="addButton" fx:id="saveButton" defaultButton="true" layoutX="40.0" layoutY="373.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="50.0" prefWidth="250.0" text="Сохранить" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="40.0" />
             <Button id="cancelButton" cancelButton="true" layoutX="458.0" layoutY="364.0" mnemonicParsing="false" onAction="#scheduleAction" prefHeight="50.0" prefWidth="250.0" text="Отмена" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="30.0" />
          </children>
@@ -141,11 +133,21 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Label layoutX="666.0" layoutY="67.0" text="Log Out" textFill="WHITE" AnchorPane.rightAnchor="17.0">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Pane id="mainPane" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label fx:id="dataLabel" layoutX="85.0" layoutY="86.0" prefHeight="16.0" prefWidth="31.0" text="Login" textFill="WHITE">
+            <Label fx:id="dataLabel" layoutX="85.0" layoutY="86.0" prefHeight="16.0" prefWidth="31.0" text="User" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="100.0" prefHeight="15.0" prefWidth="31.0" text="Type" textFill="WHITE">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>

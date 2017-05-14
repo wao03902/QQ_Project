@@ -1,5 +1,7 @@
 package com.ivisoft.salon.controllers;
 
+import static com.ivisoft.salon.utils.JavaFXUtil.createScene;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -105,9 +107,13 @@ public class ClientsController implements Initializable {
     @FXML
     private void newClient(ActionEvent event) throws IOException {
         
-//        Stage stage = JavaFXUtil.createStage("/com/ivisoft/salon/gui/addClient.fxml");
-//        stage.setTitle("New client");
-//        stage.show();
+        Stage stage = new Stage();
+        stage.setScene(createScene(this, "addClient"));
+        stage.setResizable(false);
+        stage.initOwner(Salon.stage);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setTitle("New client");
+        stage.show();
     }
     
     @FXML

@@ -21,17 +21,17 @@ public class Salon extends Application {
     public static Scene staffScene;
     public static Scene servicesScene;
     public static Scene clientsScene;
+    public static Scene newVisitScene;
     
     @Override
     public void start(Stage primaryStage) throws ClassNotFoundException, SQLException {
         System.out.println(ClientDao.getClientById(1));
-        
         Connection test = DBUtil.getConnection();
         if (test == null) {
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Ошибка");
-            alert.setHeaderText("Не удалось подключится к базе данных");
-            alert.setContentText("Проверьте ваши настройки базы данных и повторите попытку!");
+            alert.setTitle("РћС€РёР±РєР°");
+            alert.setHeaderText("РћС€РёР±РєР° СЃРѕРµРґРёРЅРµРЅРёСЏ СЃ Р±Р°Р·РѕР№ РґР°РЅС‹С…");
+            alert.setContentText("РџСЂРѕРІРµСЂСЊС‚Рµ СЃРѕРµРґРёРЅРµРЅРёРµ СЃ Р‘Р” Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ!");
             alert.showAndWait();
             System.exit(0);
         }
@@ -41,6 +41,7 @@ public class Salon extends Application {
         staffScene = createScene(this, "staff");
         clientsScene = createScene(this, "clients");
         servicesScene = createScene(this, "services");
+        newVisitScene  = createScene(this, "visit");
         
         Scene scene = createScene(this, "login");
         primaryStage.setScene(scene);

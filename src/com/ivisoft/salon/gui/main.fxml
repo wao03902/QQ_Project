@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import impl.org.controlsfx.spreadsheet.SpreadsheetGridView?>
-<?import javafx.scene.control.Label?>
 <?import org.controlsfx.control.spreadsheet.SpreadsheetView?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="940.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivisoft.salon.controllers.MainController">
@@ -45,10 +44,19 @@
       </VBox>
       <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <DatePicker fx:id="dataPicker" layoutX="552.0" layoutY="40.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0" />
-            <SpreadsheetView fx:id="mainTable" layoutX="32.0" layoutY="31.0" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-              
+            <DatePicker fx:id="datePicker" layoutX="552.0" layoutY="40.0" showWeekNumbers="true" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0" />
+            <SpreadsheetView fx:id="mainTable" layoutX="32.0" layoutY="31.0" maxHeight="2000.0" maxWidth="2000.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="460.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
             </SpreadsheetView>
+            <Button layoutX="694.0" layoutY="386.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#fullScreenAction" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="3.0">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/full-screen.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="addButton" layoutX="60.0" layoutY="385.0" mnemonicParsing="false" onAction="#addVisit" prefWidth="100.0" text="Добавить" AnchorPane.bottomAnchor="10.0" />
          </children>
          <GridPane.margin>
             <Insets />
@@ -70,7 +78,7 @@
                   <Image url="@../images/title.png" />
                </image>
             </ImageView>
-            <Button id="LogoutButton" fx:id="logoutButton" alignment="TOP_CENTER" layoutX="650.0" layoutY="28.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="81.0" prefWidth="81.0" textFill="WHITE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
+            <Button id="LogoutButton" fx:id="logoutButton" alignment="TOP_CENTER" layoutX="650.0" layoutY="28.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="50.0" prefWidth="60.0" textFill="WHITE" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
@@ -82,7 +90,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label layoutX="666.0" layoutY="67.0" text="Log Out" textFill="WHITE">
+            <Label layoutX="666.0" layoutY="67.0" text="Log Out" textFill="WHITE" AnchorPane.rightAnchor="17.0">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>

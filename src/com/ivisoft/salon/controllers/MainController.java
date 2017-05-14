@@ -1,5 +1,7 @@
 package com.ivisoft.salon.controllers;
 
+import static com.ivisoft.salon.utils.JavaFXUtil.createScene;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -35,6 +37,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class MainController implements Initializable {
     
@@ -75,10 +79,10 @@ public class MainController implements Initializable {
     private SpreadsheetView mainTable;
     
     @FXML
-    private DatePicker dataPicker;
+    private DatePicker datePicker;
 
-    private LocalTime startTime = LocalTime.of(8, 0, 0);
-    private LocalTime endTime = LocalTime.of(17, 0, 0);
+    private static LocalTime startTime = LocalTime.of(8, 0, 0);
+    private static LocalTime endTime = LocalTime.of(17, 0, 0);
     
     private List<Master> masters;
     private List<Visit> visits;
@@ -146,8 +150,8 @@ public class MainController implements Initializable {
         clock.setFont(new Font("Andalus", 36));
         timeLabel.setGraphic(clock);
         
-        dataPicker.setValue(LocalDate.now());
-        dataPicker.setEditable(false);
+        datePicker.setValue(LocalDate.now());
+        datePicker.setEditable(false);
         masters = MasterDao.getAllMasters();
         
         mainTable.setEditable(false);
@@ -155,7 +159,7 @@ public class MainController implements Initializable {
         mainTable.setGrid(getGridByDate(LocalDate.now()));
         mainTable.getColumns().get(0).setPrefWidth(50);
         
-        dataPicker.valueProperty().addListener((ov, oldDate, newDate) -> {
+        datePicker.valueProperty().addListener((ov, oldDate, newDate) -> {
             mainTable.setGrid(getGridByDate(newDate));
             mainTable.getGrid().getRows().get(0).get(0);
         });
@@ -163,7 +167,8 @@ public class MainController implements Initializable {
     
     @FXML
     private void scheduleAction(ActionEvent event) {
-        
+        Salon.stage.setTitle("Новый визит");
+        Salon.stage.setScene(Salon.mainScene);
     }
     
     @FXML
@@ -201,6 +206,7 @@ public class MainController implements Initializable {
     
     @FXML
     private void addVisit(ActionEvent event) {
-        
+        Salon.stage.setTitle("Новый визит");
+        Salon.stage.setScene(Salon.newVisitScene);
     }
 }

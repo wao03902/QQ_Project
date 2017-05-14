@@ -146,4 +146,9 @@ public class Master {
         }
         return true;
     }
+    
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

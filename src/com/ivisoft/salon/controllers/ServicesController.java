@@ -108,7 +108,6 @@ public class ServicesController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 editAction(event);
-                mainTable.getSelectionModel().clearSelection();
             }
         });
         MenuItem item2 = new MenuItem("Удалить");
@@ -116,7 +115,6 @@ public class ServicesController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 deleteAction(event);
-                mainTable.getSelectionModel().clearSelection();
             }
         });
         contextMenu.getItems().addAll(item1, item2);

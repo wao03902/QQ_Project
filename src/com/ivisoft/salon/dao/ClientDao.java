@@ -33,6 +33,26 @@ public class ClientDao {
         return client;
     }
     
+    public static Client getClientByPhone(String phone) {
+        
+        Client client = null;
+        
+        String query = "SELECT * FROM qq_clients WHERE client_phone = '" + phone + "'";
+        
+        try (Connection conn = DBUtil.getConnection();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query)) {
+            
+            if (rs.next()) {
+                client = getClientFromResultSet(rs);
+            }
+            
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return client;
+    }
+    
     public static List<Client> getAllClients() {
         
         List<Client> clients = new ArrayList<>();
