@@ -19,6 +19,7 @@ public class Visit {
     private IntegerProperty totalPrice = new SimpleIntegerProperty();
     private ObjectProperty<LocalDateTime> dateAndTime = new SimpleObjectProperty<>();
     private IntegerProperty status = new SimpleIntegerProperty();
+    private ObjectProperty<Dictionary> discountType = new SimpleObjectProperty<>();
     
     public int getId() {
         return id.get();
@@ -54,6 +55,14 @@ public class Visit {
 
     public Integer getDuration() {
         return duration.get();
+    }
+    
+    public Dictionary getDiscountType() {
+        return discountType.get();
+    }
+
+    public void setDiscountType(Dictionary discountType) {
+        this.discountType.set(discountType);
     }
 
     public void setDuration(Integer duration) {

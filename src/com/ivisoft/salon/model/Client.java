@@ -50,7 +50,7 @@ public class Client {
     public void setSex(Dictionary sex) {
         this.sex.set(sex);
     }
-
+    
     public Integer getStatus() {
         return status.get();
     }

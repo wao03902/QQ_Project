@@ -1,7 +1,12 @@
 package com.ivisoft.salon.controllers;
 
+import static com.ivisoft.salon.utils.JavaFXUtil.createScene;
+
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
@@ -19,11 +24,14 @@ import com.ivisoft.salon.model.Service;
 import com.ivisoft.salon.model.Visit;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -55,14 +63,11 @@ public class AddVisitController implements Initializable {
         }
     }
     
-//    @FXML
-//    private ChoiceBox dateField;
+    @FXML
+    private DatePicker datePicker;
     
     @FXML
-    private ChoiceBox<TimeValue> timeField;
-    public enum TimeValue {
-        
-    }
+    private ComboBox<LocalTime> timeField;
 
     @FXML
     private ChoiceBox<Master> masterField;
@@ -153,6 +158,7 @@ public class AddVisitController implements Initializable {
         totalField.setText(String.valueOf(0));
         
         additionallyField.textProperty().addListener((o, oldText, newText) -> {
+            System.out.println("qwerty");
             refreshTotalPrice();
         });
         
@@ -169,9 +175,14 @@ public class AddVisitController implements Initializable {
         telField.textProperty().addListener((o, oldText, newText) -> {
             if (newText.length() == 10) {
                 client = ClientDao.getClientByPhone(newText);
-                nameFiled.setText(client.getName());
+                if (client != null) {
+                    nameFiled.setText(client.getName());
+                }
             }
         });
+        
+        datePicker.setValue(LocalDate.now());
+        timeField.getSelectionModel().select(0);
     }
     
     private void refreshTotalPrice() {
@@ -194,6 +205,13 @@ public class AddVisitController implements Initializable {
         
         totalField.setText(String.valueOf(result));
         
+        LocalTime temp = MainController.startTime;
+        ObservableList<LocalTime> options = FXCollections.observableArrayList();
+        while (!temp.equals(MainController.endTime.plusMinutes(15))) {
+            options.add(temp);
+            temp = temp.plusMinutes(15);
+        }
+        timeField.setItems(options);
     }
     
     @FXML
@@ -201,22 +219,31 @@ public class AddVisitController implements Initializable {
         Visit visit = new Visit();
         visit.setPrice(Integer.valueOf(priceField.getText().trim()));
         visit.setDuration(Integer.valueOf(durationField.getText().trim()));
-        visit.setDiscount(Integer.valueOf(discountField.getText().trim()));
         visit.setMaster(masterField.getValue());
         visit.setService(serviceField.getValue());
         visit.setStatus(1);
         visit.setTotalPrice(Integer.valueOf(totalField.getText().trim()));
+        visit.setDateAndTime(LocalDateTime.of(datePicker.getValue(), timeField.getValue()));
+        visit.setDiscountType(DictionaryDao.getDictByCaption(discountTypeField.getValue().value));
+        visit.setDiscount(Integer.valueOf(discountField.getText()));
+        
         if (client != null) {
             visit.setClient(client);
         } else {
             client = new Client();
             client.setName(nameFiled.getText().trim());
-            client.setPhone(telField.getText());
+            client.setPhone(telField.getText().trim());
+            client.setDescription(noteField.getText().trim());
+            client.setSex(DictionaryDao.getDictByCaption("Мужской"));
+            client.setStatus(1);
+            ClientDao.createClient(client);
+            client = ClientDao.getClientByPhone(client.getPhone());
             visit.setClient(client);
         }
         
         VisitDao.createVisit(visit);
         
+        Salon.mainScene = createScene(this, "main");
         scheduleAction(event);
     }
     

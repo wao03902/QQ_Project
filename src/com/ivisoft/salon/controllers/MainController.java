@@ -1,7 +1,5 @@
 package com.ivisoft.salon.controllers;
 
-import static com.ivisoft.salon.utils.JavaFXUtil.createScene;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -21,24 +19,17 @@ import com.ivisoft.salon.dao.VisitDao;
 import com.ivisoft.salon.model.Master;
 import com.ivisoft.salon.model.Visit;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 public class MainController implements Initializable {
     
@@ -81,8 +72,8 @@ public class MainController implements Initializable {
     @FXML
     private DatePicker datePicker;
 
-    private static LocalTime startTime = LocalTime.of(8, 0, 0);
-    private static LocalTime endTime = LocalTime.of(17, 0, 0);
+    public static LocalTime startTime = LocalTime.of(8, 0, 0);
+    public static LocalTime endTime = LocalTime.of(17, 0, 0);
     
     private List<Master> masters;
     private List<Visit> visits;

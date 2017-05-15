@@ -113,8 +113,8 @@ public class VisitDao {
     
     public static void createVisit(Visit visit) {
         String query = "INSERT INTO qq_visits(id_client, id_service, visit_price, visit_duration, "
-                + "visit_discount, visit_total_price, visit_date, visit_status) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                + "visit_discount, visit_total_price, visit_date, visit_status, id_master, id_discount_type) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try (Connection conn = DBUtil.getConnection();
             PreparedStatement pst = conn.prepareStatement(query)) {
@@ -127,8 +127,10 @@ public class VisitDao {
             pst.setInt(6, visit.getTotalPrice());
             pst.setTimestamp(7, Timestamp.valueOf(visit.getDateAndTime()));
             pst.setInt(8, visit.getStatus());
+            pst.setInt(9, visit.getMaster().getId());
+            pst.setInt(10, visit.getDiscountType().getId());
             
-            pst.executeUpdate(query);
+            pst.executeUpdate();
             
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -140,7 +142,7 @@ public class VisitDao {
         String query = "UPDATE qq_visits SET "
                 + "id_client = ?, id_service = ?, visit_price = ?, "
                 + "visit_duration = ?, visit_discount = ?, visit_total_price = ?, "
-                + "visit_date = ?, visit_status = ? WHERE id_client = ?";
+                + "visit_date = ?, visit_status = ?, id_master = ?, id_discount_type = ? WHERE id_client = ?";
         
         try (Connection conn = DBUtil.getConnection();
             PreparedStatement pst = conn.prepareStatement(query)) {
@@ -153,7 +155,9 @@ public class VisitDao {
             pst.setInt(6, visit.getTotalPrice());
             pst.setTimestamp(7, Timestamp.valueOf(visit.getDateAndTime()));
             pst.setInt(8, visit.getStatus());
-            pst.setInt(9, visit.getId());
+            pst.setInt(9, visit.getMaster().getId());
+            pst.setInt(10, visit.getDiscountType().getId());
+            pst.setInt(11, visit.getId());
             
             pst.executeUpdate();
             
@@ -202,6 +206,7 @@ public class VisitDao {
         visit.setClient(ClientDao.getClientById(rs.getInt("id_client")));
         visit.setService(ServiceDao.getServiceById(rs.getInt("id_service")));
         visit.setMaster(MasterDao.getMasterById(rs.getInt("id_master")));
+        visit.setDiscountType(DictionaryDao.getDictById(rs.getInt("id_discount_type")));
         
         return visit;
     }

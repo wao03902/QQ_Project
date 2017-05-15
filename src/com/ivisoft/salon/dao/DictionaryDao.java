@@ -35,6 +35,28 @@ public class DictionaryDao {
         return dict;
     }
     
+public static Dictionary getDictByCaption(String caption) {
+        
+        Dictionary dict = null;
+        
+        String query = "SELECT * FROM qq_dictionary WHERE caption = '" + caption +"'";
+        
+        try (Connection conn = DBUtil.getConnection();
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(query)) {
+            
+            if (rs.next()) {
+                dict = getDictFromResultSet(rs);
+            }
+            
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return dict;
+    }
+    
     public static List<Dictionary> getDictsByType(String type) {
         
         List<Dictionary> dicts = new ArrayList<>();

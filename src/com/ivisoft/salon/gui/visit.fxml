@@ -84,14 +84,14 @@
                   </Label>
                   <Label id="visitLabel" alignment="CENTER" layoutX="350.0" layoutY="115.0" prefHeight="30.0" prefWidth="110.0" text="Имя" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="115.0" />
                   <Label id="visitLabel" alignment="CENTER" layoutX="10.0" layoutY="115.0" prefHeight="30.0" prefWidth="110.0" text="Телефон" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="115.0" />
-                  <DatePicker id="selectionButton" layoutX="498.0" layoutY="13.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="10.0" />
-                  <ChoiceBox id="selectionButton" fx:id="timeField" layoutX="513.0" layoutY="57.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <DatePicker fx:id="datePicker" layoutX="498.0" layoutY="13.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="10.0" />
+                  <ComboBox id="selectionButton" fx:id="timeField" layoutX="513.0" layoutY="57.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                   <ChoiceBox id="selectionButton" fx:id="sectionField" layoutX="180.0" layoutY="45.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="45.0" />
                   <ChoiceBox id="selectionButton" fx:id="serviceField" layoutX="510.0" layoutY="45.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
                   <TextField fx:id="priceField" alignment="CENTER" layoutX="122.0" layoutY="93.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="80.0" />
                   <TextField fx:id="durationField" alignment="CENTER" layoutX="520.0" layoutY="78.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="80.0" />
                   <TextField fx:id="baseTelField" alignment="CENTER" editable="false" layoutX="180.0" layoutY="115.0" prefHeight="30.0" prefWidth="40.0" text="+38" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="115.0" />
-                  <TextField fx:id="telField" layoutX="220.0" layoutY="115.0" prefHeight="30.0" prefWidth="110.0" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="115.0" text="Номер телефона" />
+                  <TextField fx:id="telField" layoutX="220.0" layoutY="115.0" prefHeight="30.0" prefWidth="110.0" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="115.0" />
                   <TextField fx:id="nameFiled" layoutX="521.0" layoutY="118.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="115.0" />
                   <TextField fx:id="additionallyField" alignment="CENTER" layoutX="510.0" layoutY="152.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="150.0" />
                   <TextField fx:id="discountField" alignment="CENTER" layoutX="510.0" layoutY="150.0" prefHeight="30.0" prefWidth="70.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="150.0" />
